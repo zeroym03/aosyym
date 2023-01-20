@@ -6,13 +6,14 @@ enum heromove
     Idle,
     move,//우킬릭
     w,//좌클릭
+    a,
 
 }
 public class Hero : MonoBehaviour
 {
-    Animator _ani;
+    
     [SerializeField] int _attack;
-  
+    Animator _ani;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class Hero : MonoBehaviour
     }
     public void move()
     {
-        if (true)
+        if (Input.GetKey("a"))
         {
             _ani.SetInteger("hero", (int)heromove.Idle);
         }
