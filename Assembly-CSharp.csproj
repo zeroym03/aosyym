@@ -58,10 +58,11 @@
   <ItemGroup>
     <Compile Include="Assets\Tower\script\Character.cs" />
     <Compile Include="Assets\script\Hero.cs" />
+    <Compile Include="Assets\script\Attack.cs" />
+    <Compile Include="Assets\script\Legfox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Minian\WizardPolyArt\Shader\PolyArtMaskTint.shader" />
-    <None Include="Assets\Map\Julien Tonsuso\Modular Fantasy Bridges\README.txt" />
     <None Include="Assets\iteam\nnj3de_CartoonFantasyWeaponMinipack\README.txt" />
     <None Include="Assets\iteam\Elven Weapons\Readme.txt" />
     <None Include="Assets\Minian\WizardPolyArt\SRP\HowToTestSRPs.txt" />
