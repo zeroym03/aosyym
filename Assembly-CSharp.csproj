@@ -60,6 +60,7 @@
     <Compile Include="Assets\Tower\script\Character.cs" />
     <Compile Include="Assets\script\Legfox.cs" />
     <Compile Include="Assets\script\Hero.cs" />
+    <Compile Include="Assets\script\GameoverUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Minian\WizardPolyArt\Shader\PolyArtMaskTint.shader" />
