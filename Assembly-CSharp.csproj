@@ -57,8 +57,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\script\Attack.cs" />
-    <Compile Include="Assets\Tower\script\Character.cs" />
-    <Compile Include="Assets\script\Legfox.cs" />
+    <Compile Include="Assets\script\HpDown.cs" />
+    <Compile Include="Assets\script\Orangefox.cs" />
     <Compile Include="Assets\script\Hero.cs" />
     <Compile Include="Assets\script\GameoverUI.cs" />
   </ItemGroup>

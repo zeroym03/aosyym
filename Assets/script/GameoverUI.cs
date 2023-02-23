@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameoverUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] Text _dietimetext;
     void Start()
     {
         
@@ -13,6 +14,10 @@ public class GameoverUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
+    }
+    public void timechange(float timer)
+    {
+        _dietimetext.text = $"{timer.ToString("F2")}";//$"{출력할 플롯 더블.ToString("F2소수점 몇자리생성")}";
     }
 }
