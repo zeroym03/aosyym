@@ -61,6 +61,7 @@
     <Compile Include="Assets\script\HpDown.cs" />
     <Compile Include="Assets\script\Orangefox.cs" />
     <Compile Include="Assets\script\Hero.cs" />
+    <Compile Include="Assets\script\TowerScript\TowerHp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Minian\WizardPolyArt\Shader\PolyArtMaskTint.shader" />

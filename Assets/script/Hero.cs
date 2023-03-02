@@ -45,6 +45,12 @@ public class Hero : MonoBehaviour
     }
     void Update()
     {
+      
+        //if (_hit == false)
+        //    Hitted();//연속피해 방지
+        HittedColer();
+        ReMove();
+        Attack();
         if (_move == true)
         {
             if (_attack == false)
@@ -52,12 +58,7 @@ public class Hero : MonoBehaviour
                 move();
             }
         }
-        //if (_hit == false)
-            Hitted();//연속피해 방지
-        HittedColer();
-        ReMove();
-        Attack();
-       _gameoverUI.timechange(_dietimer);
+        _gameoverUI.timechange(_dietimer);
     }
     public void move()
     {
@@ -104,9 +105,9 @@ public class Hero : MonoBehaviour
             _attack = true;
             _ani.SetInteger("hero", (int)heromove.attack);
 
-
+         
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             _attack = false;
         }
@@ -115,12 +116,6 @@ public class Hero : MonoBehaviour
     public void Hitted()
     {
         int _hehp = _hp;
-        if (Input.GetKeyDown(KeyCode.M))//공격받았을때
-        {
-            _hp -= _hpdown;
-            _hit = true;
-            Debug.Log("받은피해" + _hpdown + "현재체력" + _hp);
-        }
         if (_hp >= _hehp1)
         {
             _hpimage.Hpdown((float)_hp / _hehp1);
@@ -131,6 +126,11 @@ public class Hero : MonoBehaviour
         if (min > value) value = min;
         if (max < value) value = max;
         _herohp.transform.localScale = new Vector3(value, 1, 1);
+        if (_hp < 0)return;//공격받았을때
+        
+            _hp -= _hpdown;
+            _hit = true;
+            Debug.Log("받은피해" + _hpdown + "현재체력" + _hp);
         if (_hp <= 0)
         {
             Die();
@@ -177,5 +177,6 @@ public class Hero : MonoBehaviour
             }
         }
     }
+   
 }
 

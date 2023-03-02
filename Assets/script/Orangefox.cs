@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UIElements;
 enum fox
 {
@@ -23,4 +24,16 @@ public class Orangefox : MonoBehaviour
         _rotate.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));// 가는 방향으로 보는 방향 전환시켜야함
         transform.Translate((_hero.position - transform.position).normalized * Time.deltaTime * _speed);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        {
+            if (collision.gameObject.name == "Hero")
+            {
+                // collision.gameObject.GetComponent<Hero>().Hitted();
+                _hp -= 5;
+                Debug.Log(_hp);
+            }
+        }
+    }
+
 }
