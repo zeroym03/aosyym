@@ -19,7 +19,7 @@ public class Hero : MonoBehaviour
 {
     //n,m
     Color heroColor;
-    [SerializeField] int Damages;
+    [SerializeField] public int _Damages;
     [SerializeField] float _speed;
     [SerializeField] int _hp;
     [SerializeField] Animator _ani;

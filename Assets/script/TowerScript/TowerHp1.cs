@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerHp : MonoBehaviour
+public class TowerHp1 : MonoBehaviour
 {
     [SerializeField] int _Hp;
     [SerializeField] Hero _hero;
+    [SerializeField] GameObject _mid1;
     int _dmg = 0;
     private void Start()
     {
@@ -18,11 +19,18 @@ public class TowerHp : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        _Hp -= _dmg;
-        Debug.Log(_Hp);
-        if (_Hp <= 0)
+        if (_mid1 == false)
         {
-            removal();
+            _Hp -= _dmg;
+            Debug.Log(_Hp);
+            if (_Hp <= 0)
+            {
+                removal();
+            }
+        }
+        else
+        {
+            Debug.Log("공격불가");
         }
     }
     private void OnCollisionEnter(Collision collision)

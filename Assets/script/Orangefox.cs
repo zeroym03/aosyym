@@ -21,8 +21,9 @@ public class Orangefox : MonoBehaviour
     private void Update()
     {
         v3 += (Vector3.forward).normalized * Time.deltaTime * _speed;
-        _rotate.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));// 가는 방향으로 보는 방향 전환시켜야함
-        transform.Translate((_hero.position - transform.position).normalized * Time.deltaTime * _speed);
+        Vector3 Loocdir = _hero.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(new Vector3(Loocdir.x, 0, Loocdir.z));
+        transform.position = Vector3.MoveTowards(transform.position, _hero.position, Time.deltaTime * _speed);
     }
     private void OnCollisionEnter(Collision collision)
     {
