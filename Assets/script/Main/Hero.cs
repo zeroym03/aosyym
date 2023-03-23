@@ -30,8 +30,10 @@ public class Hero : MonoBehaviour
     [SerializeField] SkinnedMeshRenderer _render;
     [SerializeField] HpDown _hpimage;
     [SerializeField] GameoverUI _gameoverUI;
+    [SerializeField] BoxCollider _Sword;
     float _cortimer = 0f;
     float _dietimer = 5f;
+    float _attacktime = 0f;
     bool _hit = false;
     bool _move = true;
     bool _attack = false;
@@ -45,9 +47,8 @@ public class Hero : MonoBehaviour
     }
     void Update()
     {
-      
-        //if (_hit == false)
-        //    Hitted();//연속피해 방지
+
+        if (_hit == false&&_move == true )Hitted();//연속피해 방지
         HittedColer();
         ReMove();
         Attack();
@@ -62,39 +63,23 @@ public class Hero : MonoBehaviour
     }
     public void move()
     {
-        Vector3 v3 = Vector3.zero;
-        if (Input.GetKey(KeyCode.W))
+        float vX = Input.GetAxisRaw("Horizontal");//0=>1D==     -1,1,0값이 계속들어옴
+        float vZ = Input.GetAxisRaw("Vertical");//GetAxis 0=0.1=0.2=0.3===1
+        Debug.Log(vX);
+        _ani.SetFloat("AxisX", vX * _speed);
+        _ani.SetFloat("AxisZ", vZ * _speed);
+        float vY = GetComponent<Rigidbody>().velocity.y;
+        Vector3 v3 = new Vector3(vX, 0, vZ);
+        Vector3 vYz = v3 * 4.5f;
+        vYz.y += vY;
+        GetComponent<Rigidbody>().velocity = vYz;
+        if (Input.GetButton("Horizontal") && vX != 0)
         {
-            v3 += (Vector3.forward).normalized * Time.deltaTime * _speed;
-            _ani.SetInteger("hero", (int)heromove.move);
-            _rotate.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            transform.rotation = Quaternion.LookRotation(new Vector3(vYz.x, 0, vYz.z));
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetButton("Vertical") && vZ != 0)
         {
-            v3 += (Vector3.left).normalized * Time.deltaTime * _speed;
-            _ani.SetInteger("hero", (int)heromove.move);
-            _rotate.transform.localRotation = Quaternion.Euler(new Vector3(0, 270, 0));
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            v3 += (Vector3.back).normalized * Time.deltaTime * _speed;
-            _ani.SetInteger("hero", (int)heromove.move);
-            _rotate.transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            v3 += (Vector3.right).normalized * Time.deltaTime * _speed;
-            _ani.SetInteger("hero", (int)heromove.move);
-            _rotate.transform.localRotation = Quaternion.Euler(new Vector3(0, 90, 0));
-        }
-
-        if (v3 != Vector3.zero)
-        {
-            transform.Translate(v3);
-        }
-        else
-        {
-            _ani.SetInteger("hero", (int)heromove.Idle);
+            transform.rotation = Quaternion.LookRotation(new Vector3(vYz.x, 0, vYz.z));
         }
     }
     public void Attack()
@@ -103,22 +88,35 @@ public class Hero : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             _attack = true;
-            _ani.SetInteger("hero", (int)heromove.attack);
-
-         
+            _ani.SetTrigger("Attack");
+            _Sword.enabled = true;
+            DonMove();
         }
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (_attack == true)
+        {
+            _attacktime += Time.deltaTime;
+            EndAttack();
+        }
+    }
+    void EndAttack()
+    {
+        if (_attacktime > 0.5f)
         {
             _attack = false;
+            _Sword.enabled = false;
+            Debug.Log("EndAttack");
+            _attacktime = 0f;
         }
-
     }
     public void Hitted()
     {
         int _hehp = _hp;
-        if (_hp >= _hehp1)
+        if (Input.GetKeyDown(KeyCode.M) /*_hp >= _hehp1*/)
         {
             _hpimage.Hpdown((float)_hp / _hehp1);
+            _hp -= _hpdown;
+            _hit = true;
+            Debug.Log("받은피해" + _hpdown + "현재체력" + _hp);
         }
         float value = ((float)_hp / _hehp1);
         float min = 0;
@@ -126,15 +124,10 @@ public class Hero : MonoBehaviour
         if (min > value) value = min;
         if (max < value) value = max;
         _herohp.transform.localScale = new Vector3(value, 1, 1);
-        if (_hp < 0)return;//공격받았을때
-        
-            _hp -= _hpdown;
-            _hit = true;
-            Debug.Log("받은피해" + _hpdown + "현재체력" + _hp);
         if (_hp <= 0)
         {
             Die();
-            _move = false;
+            DonMove();
         }
     }
     public void HittedColer()
@@ -177,6 +170,9 @@ public class Hero : MonoBehaviour
             }
         }
     }
-   
+    public void DonMove()
+    {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
 }
 

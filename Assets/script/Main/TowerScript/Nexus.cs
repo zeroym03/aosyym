@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerHp : MonoBehaviour
+public class Nexus : MonoBehaviour
 {
     [SerializeField] int _Hp;
     [SerializeField] Hero _hero;
-    int _dmg = 0;
+    [SerializeField] GameObject _Endparent;
+    int _dmg= 0;
     private void Start()
     {
         gameObject.SetActive(true);
         _dmg = _hero._Damages;
-    }
-    private void Update()
-    {
-
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -22,20 +19,17 @@ public class TowerHp : MonoBehaviour
         Debug.Log(_Hp);
         if (_Hp <= 0)
         {
-            removal();
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        _Hp -= _dmg;
-        Debug.Log(_Hp);
-        if (_Hp <= 0)
-        {
+            EndGame();
             removal();
         }
     }
     void removal()
     {
         gameObject.SetActive(false);
+    }
+    void EndGame()
+    {
+        _Endparent.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

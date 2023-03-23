@@ -56,15 +56,18 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\script\GameoverUI.cs" />
-    <Compile Include="Assets\script\Attack.cs" />
-    <Compile Include="Assets\script\HpDown.cs" />
-    <Compile Include="Assets\script\TowerScript\TowerHp.cs" />
-    <Compile Include="Assets\script\Orangefox.cs" />
-    <Compile Include="Assets\script\Hero.cs" />
-    <Compile Include="Assets\script\TowerScript\TowerHp1.cs" />
-    <Compile Include="Assets\script\TowerScript\Nexus.cs" />
-    <Compile Include="Assets\script\TowerScript\Loby.cs" />
+    <Compile Include="Assets\script\Main\GameoverUI.cs" />
+    <Compile Include="Assets\script\Main\Attack.cs" />
+    <Compile Include="Assets\script\Main\TowerScript\MobCon.cs" />
+    <Compile Include="Assets\script\Main\HpDown.cs" />
+    <Compile Include="Assets\script\Main\TowerScript\Tower2.cs" />
+    <Compile Include="Assets\script\Main\TowerScript\Nexus.cs" />
+    <Compile Include="Assets\script\Main\TowerScript\StartTower.cs" />
+    <Compile Include="Assets\script\Main\Orangefox.cs" />
+    <Compile Include="Assets\script\Main\Hero.cs" />
+    <Compile Include="Assets\script\Main\TowerScript\Loby.cs" />
+    <Compile Include="Assets\script\Loby\LobySceneschange.cs" />
+    <Compile Include="Assets\script\Start\MainScChange.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Minian\WizardPolyArt\Shader\PolyArtMaskTint.shader" />
