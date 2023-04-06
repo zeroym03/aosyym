@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Analytics;
 using UnityEngine.UI;
 
@@ -17,20 +18,22 @@ enum heromove
 }
 public class Hero : MonoBehaviour
 {
-    //n,m
+    //캐릭터가 좌표가 00으 로있도록
     Color heroColor;
-    [SerializeField] public int _Damages;
+    [SerializeField] public int _Damages;//싱글톤으로
     [SerializeField] float _speed;
     [SerializeField] int _hp;
+
     [SerializeField] Animator _ani;
     [SerializeField] Image _herohp;
-    [SerializeField] GameObject _rotate;
     [SerializeField] GameObject _hero;
+    //[SerializeField] GameObject _RPGhero;
     [SerializeField] GameObject _uiPanel;
     [SerializeField] SkinnedMeshRenderer _render;
     [SerializeField] HpDown _hpimage;
     [SerializeField] GameoverUI _gameoverUI;
     [SerializeField] BoxCollider _Sword;
+    NavMeshAgent _Agent;
     float _cortimer = 0f;
     float _dietimer = 5f;
     float _attacktime = 0f;
@@ -38,16 +41,20 @@ public class Hero : MonoBehaviour
     bool _move = true;
     bool _attack = false;
     int _hpdown = 20;
-    int _hehp1 = 120;
+    int _hehp ,HP= 120;
+    private void Awake()
+    {
+        _Agent = GetComponent<NavMeshAgent>();
+    }
     void Start()
     {
-        int _hehp = _hp;
+        _hehp = HP = _hp;
         Debug.Log("확인");
         heroColor = _render.material.color;
     }
     void Update()
     {
-
+        _hero.transform.position = gameObject.transform.position;
         if (_hit == false&&_move == true )Hitted();//연속피해 방지
         HittedColer();
         ReMove();
@@ -56,12 +63,36 @@ public class Hero : MonoBehaviour
         {
             if (_attack == false)
             {
-                move();
+           //     move();
             }
         }
+        Debug.Log(_move);
+        Debug.Log(_attack);
         _gameoverUI.timechange(_dietimer);
+        MouseClick();
     }
-    public void move()
+    void MouseClick()
+    {
+        if (Input.GetMouseButtonDown(0))//선택
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Ground")))
+            {
+                Debug.Log("hit name" + hit.collider.name+ hit.point);
+                _Agent.SetDestination(hit.point);
+            }
+        }
+        if (Vector3.Distance(transform.position, _Agent.destination) >= 0.3f )// 현위치 - 목적이 계산
+        {
+            _ani.SetInteger("Hero", (int)heromove.move);
+        }
+        else
+        {
+            _ani.SetInteger("Hero", (int)heromove.Idle);
+        }
+    }
+        public void move()
     {
         float vX = Input.GetAxisRaw("Horizontal");//0=>1D==     -1,1,0값이 계속들어옴
         float vZ = Input.GetAxisRaw("Vertical");//GetAxis 0=0.1=0.2=0.3===1
@@ -110,15 +141,15 @@ public class Hero : MonoBehaviour
     }
     public void Hitted()
     {
-        int _hehp = _hp;
+         
         if (Input.GetKeyDown(KeyCode.M) /*_hp >= _hehp1*/)
         {
-            _hpimage.Hpdown((float)_hp / _hehp1);
+            _hpimage.Hpdown((float)_hp / _hehp);
             _hp -= _hpdown;
             _hit = true;
             Debug.Log("받은피해" + _hpdown + "현재체력" + _hp);
         }
-        float value = ((float)_hp / _hehp1);
+        float value = ((float)_hp / _hehp);
         float min = 0;
         float max = 1;
         if (min > value) value = min;
@@ -148,6 +179,7 @@ public class Hero : MonoBehaviour
     {
         _ani.SetInteger("hero", (int)heromove.die);
         GameOver();
+        _move = false;
         Debug.Log("die");
     }
     public void GameOver()
@@ -163,7 +195,7 @@ public class Hero : MonoBehaviour
             {
                 Debug.Log("ReMove");
                 _uiPanel.SetActive(false);
-                _hp = _hehp1;
+                _hp = HP;
                 _move = true;
                 _ani.SetInteger("hero", (int)heromove.remove);
                 _dietimer = 5f;

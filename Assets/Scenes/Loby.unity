@@ -683,9 +683,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2048562921}
   - {fileID: 508478569}
   - {fileID: 1638723471}
+  - {fileID: 2048562921}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -887,7 +887,7 @@ RectTransform:
   - {fileID: 1106549047}
   - {fileID: 764795947}
   m_Father: {fileID: 370426487}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1241,7 +1241,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: "\uB85C\uBE44\uB85C"
 --- !u!222 &714864039
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2332,7 +2332,7 @@ RectTransform:
   m_Children:
   - {fileID: 1129181569}
   m_Father: {fileID: 370426487}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2566,7 +2566,7 @@ RectTransform:
   m_Children:
   - {fileID: 714864037}
   m_Father: {fileID: 370426487}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

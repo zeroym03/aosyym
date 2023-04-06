@@ -57,17 +57,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\script\Main\GameoverUI.cs" />
+    <Compile Include="Assets\script\Test.cs" />
     <Compile Include="Assets\script\Main\Attack.cs" />
     <Compile Include="Assets\script\Main\TowerScript\MobCon.cs" />
     <Compile Include="Assets\script\Main\HpDown.cs" />
     <Compile Include="Assets\script\Main\TowerScript\Tower2.cs" />
     <Compile Include="Assets\script\Main\TowerScript\Nexus.cs" />
     <Compile Include="Assets\script\Main\TowerScript\StartTower.cs" />
+    <Compile Include="Assets\script\Start\MainScChange.cs" />
     <Compile Include="Assets\script\Main\Orangefox.cs" />
+    <Compile Include="Assets\script\Loby\LobySceneschange.cs" />
     <Compile Include="Assets\script\Main\Hero.cs" />
     <Compile Include="Assets\script\Main\TowerScript\Loby.cs" />
-    <Compile Include="Assets\script\Loby\LobySceneschange.cs" />
-    <Compile Include="Assets\script\Start\MainScChange.cs" />
+    <Compile Include="Assets\script\Main\CameraCon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Minian\WizardPolyArt\Shader\PolyArtMaskTint.shader" />
