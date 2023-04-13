@@ -3,28 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 public class StartTower : MonoBehaviour
 {
-    [SerializeField] public int _Hp;
-    [SerializeField] Hero _hero;
+    int _Hp;
     int _dmg = 0;
+    //공격 코드 만들어야 함
     private void Start()
     {
         gameObject.SetActive(true);
-        _dmg = _hero._Damages;
+        _dmg=GenericSinglngton<Hero>.Instans._Damages;
     }
     private void Update()
     {
 
     }
     private void OnTriggerEnter(Collider other)
-    {
-        _Hp -= _dmg;
-        Debug.Log(_Hp);
-        if (_Hp <= 0)
-        {
-            removal();
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
     {
         _Hp -= _dmg;
         Debug.Log(_Hp);

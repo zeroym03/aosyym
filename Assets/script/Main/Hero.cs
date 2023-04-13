@@ -20,7 +20,7 @@ public class Hero : MonoBehaviour
 {
     //캐릭터가 좌표가 00으 로있도록
     Color heroColor;
-    [SerializeField] public int _Damages;//싱글톤으로
+   public int _Damages;//싱글톤으로
     [SerializeField] float _speed;
     [SerializeField] int _hp;
 
@@ -55,6 +55,7 @@ public class Hero : MonoBehaviour
     void Update()
     {
         _hero.transform.position = gameObject.transform.position;
+        Debug.Log(_hero);
         if (_hit == false&&_move == true )Hitted();//연속피해 방지
         HittedColer();
         ReMove();
@@ -63,7 +64,7 @@ public class Hero : MonoBehaviour
         {
             if (_attack == false)
             {
-           //     move();
+                //     move();
             }
         }
         Debug.Log(_move);

@@ -10,7 +10,7 @@ public class Nexus : MonoBehaviour
     int _dmg= 0;
     private void Start()
     {
-        gameObject.SetActive(true);
+      //  gameObject.SetActive(true);
         _dmg = _hero._Damages;
     }
     private void OnTriggerEnter(Collider other)

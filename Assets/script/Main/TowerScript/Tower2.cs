@@ -14,15 +14,18 @@ public class Tower2 : MonoBehaviour
     {
         gameObject.SetActive(true);
         _dmg = _hero._Damages;
-        _on = _mid1._Hp;
+        
     }
     private void Update()
     {
-        
+        if (_mid1 == false)
+        {
+
+        }
     }
     private void OnTriggerEnter(Collider other)
     {// 닿은 유닛체크후 그 유닛에 공격력 받아서 그공격력으로 체력감소
-        if (_on <=0)  
+        if (_mid1 == false)  
         {
             _Hp -= _dmg;
             Debug.Log(_Hp);
