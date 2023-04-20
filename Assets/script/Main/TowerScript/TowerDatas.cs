@@ -8,6 +8,21 @@ public class TowerDatas : MonoBehaviour
 
     private TowerData[] arr = null;
     // Start is called before the first frame update
+    public TowerData this[ETowerLatitude type]//¿Œµ¶º≠
+    {
+        get
+        {
+            if (arr == null)
+            {
+                readData();
+            }
+            foreach (var data in arr)
+            {
+                if (data.LatitudeID == type) return data;
+            }
+            return new TowerData();
+        }
+    }
     void Start()
     {
         readData();
@@ -21,10 +36,9 @@ public class TowerDatas : MonoBehaviour
         {
             var lineItem = data[i].Split(',');
             TowerData Td;
-            Td.Id = int.Parse(lineItem[0]);
-            Td.Latitude = (ETowerLatitude)Enum.Parse(typeof(ETowerLatitude), lineItem[1]);
-            Td.Hp = float.Parse(lineItem[2]);
-            Td.Dmg = int.Parse(lineItem[3]);
+            Td.LatitudeID = (ETowerLatitude)Enum.Parse(typeof(ETowerLatitude), lineItem[0]);
+            Td.Hp = int.Parse(lineItem[1]);
+            Td.Dmg = int.Parse(lineItem[2]);
             arr[i - 1] = Td;
         }
     }
@@ -37,14 +51,19 @@ public class TowerDatas : MonoBehaviour
 }
 public struct TowerData
 {
-    public int Id;
-    public ETowerLatitude Latitude;
-    public float Hp;
+    public ETowerLatitude LatitudeID;
+    public int Hp;
     public int Dmg;
 }
 public enum ETowerLatitude
 {
-    top,
-    mid,
-    bot,
+    top1,
+    top2,
+    top3,
+    mid1,
+    mid2,
+    mid3,
+    bot1,
+    bot2,
+    bot3,
 }

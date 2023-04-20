@@ -1,11 +1,11 @@
-Id,Latitude,Hp,Dmg
-1,top,200,30
-2,top,300,30
-3,top,200,50
-1,mid,200,30
-2,mid,300,30
-3,mid,400,50
-1,bot,200,30
-2,bot,300,30
-3,bot,200,50
+LatitudeID,Hp,Dmg
+top1,200,30
+top2,300,30
+top3,200,50
+mid1,200,30
+mid2,300,30
+mid3,400,50
+bot1,200,30
+bot2,300,30
+bot3,200,50
 
