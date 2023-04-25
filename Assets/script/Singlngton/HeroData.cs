@@ -5,10 +5,9 @@ using UnityEngine.AI;
 
 public class HeroData :Hero
 {
-    public Color heroColor;
     public int _Damages = 5;
-    public float _speed;
-    public int _hp;
+    public float _speed = 20;
+    public int _hp =20;
    public float _cortimer = 0f;
     public float _dietimer = 5f;
     public float _attacktime = 0f;

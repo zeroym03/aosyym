@@ -27,6 +27,10 @@ public class TowerHpSC : MonoBehaviour
                 removal();
             }
         }
+        else
+        {
+            Debug.Log("앞에포탑이 살아있습니다");
+        }
     }
     void removal()
     {
