@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class TowerDatas : MonoBehaviour
 {
-
     private TowerData[] arr = null;
-    // Start is called before the first frame update
     public TowerData this[ETowerLatitude type]//¿Œµ¶º≠
     {
         get
@@ -41,12 +39,6 @@ public class TowerDatas : MonoBehaviour
             Td.Dmg = int.Parse(lineItem[2]);
             arr[i - 1] = Td;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
 public struct TowerData

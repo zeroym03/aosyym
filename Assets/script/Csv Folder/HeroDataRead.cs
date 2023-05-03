@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class HeroDataRead : MonoBehaviour
 {
     private HeroStat[] arr = null;
@@ -25,7 +21,6 @@ public class HeroDataRead : MonoBehaviour
     {
         readData();
     }
-
     public void readData()
     {
         var data = CsvReader.readFileData("HeroData");
@@ -42,11 +37,6 @@ public class HeroDataRead : MonoBehaviour
             HS.Speed = float.Parse(lineItem[4]);
             arr[i - 1] = HS;
         }
-    }
-
-    void Update()
-    {
-
     }
 }
 public struct HeroStat

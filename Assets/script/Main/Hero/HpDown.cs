@@ -1,16 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HpDown : MonoBehaviour
 {
     [SerializeField] Image _hpimage;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     public void Hpdown(float value)
     {
         float min = 0;

@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class TowerHpSC : MonoBehaviour
+
+public class TwinsTower : MonoBehaviour
 {
-    [SerializeField] TowerHpSC beforetower;
-   public int _Hp =200;
+    [SerializeField] TowerHpCon topTower;
+    [SerializeField] TowerHpCon midTower;
+    [SerializeField] TowerHpCon botTower;
+     int _Hp = 200;
+    public int Hp { get { return _Hp; } set { _Hp = value; } }
     int _dmg = 0;
-    //공격 코드 만들어야 함
     private void Start()
     {
         gameObject.SetActive(true);
-        _dmg=GenericSinglngton<HeroData>.Instans._Damages;
-    }
-    private void Update()
-    {
-
+        _dmg = GenericSinglngton<HeroData>.Instans.Damages;
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (beforetower == null || beforetower._Hp <= 0)
+        if (topTower.Hp <=0 || midTower.Hp <= 0|| botTower.Hp <= 0)
         {
             _Hp -= _dmg;
             Debug.Log(_Hp);

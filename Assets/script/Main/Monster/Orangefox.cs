@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using UnityEngine.UIElements;
 enum fox
 {
     move,
@@ -36,5 +32,4 @@ public class Orangefox : MonoBehaviour
             }
         }
     }
-
 }
