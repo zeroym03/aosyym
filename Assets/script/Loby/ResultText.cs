@@ -8,6 +8,6 @@ public class ResultText: MonoBehaviour
     { init(); }
     public void init()//무기정보 받아서 출력값 변경
     {
-        text.text = GenericSinglngton<HeroData>.Instans.name;
+        text.text = GenericSinglngton<HeroData>.Instance.name;
     }
 }

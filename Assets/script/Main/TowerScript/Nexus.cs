@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Nexus : MonoBehaviour
@@ -7,21 +5,21 @@ public class Nexus : MonoBehaviour
     [SerializeField] TwinsTower twinsTower1;
     [SerializeField] TwinsTower twinsTower2;
     [SerializeField] GameObject endCanvas;
-    int _Hp = 200;
-    public int Hp { get { return _Hp; } set { _Hp = value; } }
+    int _towerHp = 200;
+    public int Hp { get { return _towerHp; } set { _towerHp = value; } }
     int _dmg = 0;
     private void Start()
     {
         gameObject.SetActive(true);
-        _dmg = GenericSinglngton<HeroData>.Instans.Damages;
+        _dmg = GenericSinglngton<HeroData>.Instance.Damages;
     }
     private void OnTriggerEnter(Collider other)
     {
         if (twinsTower2.Hp <= 0 && twinsTower1.Hp <= 0) 
         {
-            _Hp -= _dmg;
-            Debug.Log(_Hp);
-            if (_Hp <= 0)
+            _towerHp -= _dmg;
+            Debug.Log(_towerHp);
+            if (_towerHp <= 0)
             {
                 removal();
             }

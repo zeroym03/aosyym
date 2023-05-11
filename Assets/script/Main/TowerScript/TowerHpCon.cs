@@ -9,7 +9,7 @@ public class TowerHpCon : MonoBehaviour//이름 제데로 바꾸기
     private void Start()
     {
         gameObject.SetActive(true);
-        _dmg=GenericSinglngton<HeroData>.Instans.Damages;
+        _dmg=GenericSinglngton<HeroData>.Instance.Damages;
     }
     private void OnTriggerEnter(Collider other)
     {

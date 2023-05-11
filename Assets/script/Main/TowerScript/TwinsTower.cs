@@ -13,7 +13,7 @@ public class TwinsTower : MonoBehaviour
     private void Start()
     {
         gameObject.SetActive(true);
-        _dmg = GenericSinglngton<HeroData>.Instans.Damages;
+        _dmg = GenericSinglngton<HeroData>.Instance.Damages;
     }
     private void OnTriggerEnter(Collider other)
     {

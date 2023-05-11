@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class GenericSinglngton<T> where T : MonoBehaviour
 {
-    private static T _Instance;
-    public static T Instans
+    private static T _instance;
+    public static T Instance
     {
         get
         {
-            if (_Instance == null)
+            if (_instance == null)
             {
                 GameObject temp = new GameObject();
-                _Instance = temp.AddComponent<T>();
+                _instance = temp.AddComponent<T>();
                 Object.DontDestroyOnLoad(temp);
             }
-            return _Instance;
+            return _instance;
         }
     }
 }
