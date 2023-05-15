@@ -11,7 +11,7 @@ public class Nexus : MonoBehaviour
     private void Start()
     {
         gameObject.SetActive(true);
-        _dmg = GenericSinglngton<HeroData>.Instance.Damages;
+        _dmg = GenericSinglngton<HeroUnitData>.Instance.Damages;
     }
     private void OnTriggerEnter(Collider other)
     {

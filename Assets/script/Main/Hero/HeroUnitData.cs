@@ -33,60 +33,26 @@ public class HeroUnitData : MonoBehaviour
 
     string _name = "yym";
     public string Name { get { return _name; } set { _name = value; } }
+    NavMeshAgent _Agent;
 
-    //    public SkinnedMeshRenderer _Render
-    //    {
-    //        get { return _render; }
-    //        set
-    //        {
-    //            _render = value;
-    //            _heroColor = _render.material.color;
-    //        }
-    //    }
-    //    public Transform _Hero
-    //    {
-    //        get { return _hero; }
-    //        set
-    //        {
-    //            _hero = value;
-    //            _hero.transform.position = gameObject.transform.position;
-    //        }
-    //    }
-
-    //    public NavMeshAgent _HeroAgent
-    //    {
-    //        get { return _Agent; }
-    //        set
-    //        {
-    //            _Agent = value;
-    //            _Agent = gameObject.GetComponent<NavMeshAgent>();
-    //        }
-    //    }
+    public NavMeshAgent _HeroAgent
+    {
+        get { return _Agent; }
+        set
+        {
+            _Agent = value;
+        }
+    }
     Animator _ani;
     public Animator _HeroAni // Hero에 데이터 전부 이런현식으로 변경 
     {
         get { return _ani; }
         set { _ani = value; }
     }
-
-//    public Image _HeroHP
-//    {
-//        get { return _herohp; }
-//        set { _herohp = value; }
-//    }
-//    public GameObject _UiPanel
-//    {
-//        get { return _uiPanel; }
-//        set { _uiPanel = value;  }
-//    } public HpDown _HPImage
-//    {
-//        get { return _hpimage; }
-//        set { _hpimage = value; }
-//    } 
-
-//public BoxCollider _HeroSword
-//    {
-//        get { return _Sword; }
-//        set { _Sword = value; }
-//    }
+     BoxCollider _Sword;
+    public BoxCollider _HeroSword
+    {
+        get { return _Sword; }
+        set { _Sword = value; }
+    }
 }

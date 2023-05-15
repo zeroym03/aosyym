@@ -13,45 +13,38 @@ enum heromove
 }
 public class Hero : MonoBehaviour
 {
-  //전부 HeroData로 옮길것
-   protected  NavMeshAgent _Agent;
-   protected  Color _heroColor;
-    protected SkinnedMeshRenderer _render;
-    protected Transform _hero;
-    protected Image _herohp;
-    protected GameObject _uiPanel;
+    Color _heroColor;
+    Transform _hero;
+
+    //전부 HeroData로 옮길것
     protected HpDown _hpimage;
-    protected BoxCollider _Sword;
-   //
-    int _hpdown = 5;
-   protected int _maxHP= 0;
+    int _hpdown = 5;//임시 피해변수
+    int _maxHP = 0;
     private void Awake()
     {
-       GenericSinglngton<HeroData>.Instance._HeroAni = GetComponentInChildren<Animator>();
-        Debug.Log(gameObject.name);
-    //    _Agent = GetComponent<NavMeshAgent>();
+        GenericSinglngton<HeroUnitData>.Instance._HeroAni = GetComponentInChildren<Animator>();
+        GenericSinglngton<HeroUnitData>.Instance._HeroAgent = GetComponent<NavMeshAgent>();
+        GenericSinglngton<HeroUnitData>.Instance._HeroSword = GetComponentInChildren<BoxCollider>();
+        _heroColor = GetComponentInChildren<SkinnedMeshRenderer>().material.color;
+        _maxHP = GenericSinglngton<HeroUnitData>.Instance.hp;
+
     }
     void Start()
     {
-        Debug.Log(GenericSinglngton<HeroData>.Instance._HeroAni);
-
-        _maxHP = GenericSinglngton<HeroData>.Instance.hp;
     }
     void Update()
     {
-        if (GenericSinglngton<HeroData>.Instance.hit == false&& GenericSinglngton<HeroData>.Instance.move == true) Hitted();//연속피해 방지
-        HittedColer(); 
+        if (GenericSinglngton<HeroUnitData>.Instance.hit == false && GenericSinglngton<HeroUnitData>.Instance.move == true) Hitted();//연속피해 방지
+        HittedColer();
         ReMove();
-        Attack(); 
-        if (GenericSinglngton<HeroData>.Instance.move == true)
+        Attack();
+        if (GenericSinglngton<HeroUnitData>.Instance.move == true)
         {
-            if (GenericSinglngton<HeroData>.Instance.attack == false)
+            if (GenericSinglngton<HeroUnitData>.Instance.attack == false)
             {
                 MouseClick();
             }
-            
         }
-        
     }
     void MouseClick()//move
     {
@@ -61,16 +54,17 @@ public class Hero : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Ground")))
             {
-                _Agent.SetDestination(hit.point);
+                GenericSinglngton<HeroUnitData>.Instance._HeroAgent.SetDestination(hit.point);
+                Debug.Log(GenericSinglngton<HeroUnitData>.Instance._HeroAgent.destination);
             }
         }
-        if (Vector3.Distance(gameObject.transform.position, _Agent.destination) >= 0.3f)// 현위치 - 목적이 계산
+        if (Vector3.Distance(gameObject.transform.position, GenericSinglngton<HeroUnitData>.Instance._HeroAgent.destination) >= 0.3f)// 현위치 - 목적이 계산
         {
-          //  _ani.SetInteger("hero", (int)heromove.move);
+            GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetInteger("hero", (int)heromove.move);
         }
         else
         {
-         //   _ani.SetInteger("hero", (int)heromove.Idle);
+            GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetInteger("hero", (int)heromove.Idle);
         }
     }
     public void Attack()//attack
@@ -78,42 +72,37 @@ public class Hero : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            GenericSinglngton<HeroData>.Instance.attack = true;
-           // _ani.SetTrigger("Attack");
-            _Sword.enabled = true;
+            GenericSinglngton<HeroUnitData>.Instance.attack = true;
+            GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetTrigger("Attack");
+            GenericSinglngton<HeroUnitData>.Instance._HeroSword.enabled = true;
             DonMove();
         }
-        if (GenericSinglngton<HeroData>.Instance.attack == true)
+        if (GenericSinglngton<HeroUnitData>.Instance.attack == true)
         {
-            GenericSinglngton<HeroData>.Instance.attacktime += Time.deltaTime;
+            GenericSinglngton<HeroUnitData>.Instance.attacktime += Time.deltaTime;
             EndAttack();
         }
     }
     void EndAttack()//attack
     {
-        if (GenericSinglngton<HeroData>.Instance.attacktime > 0.5f)
+        if (GenericSinglngton<HeroUnitData>.Instance.attacktime > 0.5f)
         {
-            GenericSinglngton<HeroData>.Instance.attack = false;
-            _Sword.enabled = false;
-            GenericSinglngton<HeroData>.Instance.attacktime = 0f;
+            GenericSinglngton<HeroUnitData>.Instance.attack = false;
+            GenericSinglngton<HeroUnitData>.Instance._HeroSword.enabled = false;
+            GenericSinglngton<HeroUnitData>.Instance.attacktime = 0f;
         }
     }
     public void Hitted()//hitted
     {
         if (Input.GetKeyDown(KeyCode.M) /*_hp >= _hehp1*/)
         {
-            _hpimage.Hpdown((float)GenericSinglngton<HeroData>.Instance.hp / _maxHP);
-            GenericSinglngton<HeroData>.Instance.hp -= _hpdown;
-            GenericSinglngton<HeroData>.Instance.hit = true;
-            Debug.Log("받은피해" + _hpdown + "현재체력" + GenericSinglngton<HeroData>.Instance.hp);
+            _hpimage.Hpdown((float)GenericSinglngton<HeroUnitData>.Instance.hp / _maxHP);
+            GenericSinglngton<HeroUnitData>.Instance.hp -= _hpdown;
+            GenericSinglngton<HeroUnitData>.Instance.hit = true;
+            Debug.Log("받은피해" + _hpdown + "현재체력" + GenericSinglngton<HeroUnitData>.Instance.hp);
         }
-        //float value = ((float)GenericSinglngton<HeroData>.Instance.hp / _maxHP);
-        //float min = 0;
-        //float max = 1;
-        //if (min > value) value = min;
-        //if (max < value) value = max;
-        //_herohp.transform.localScale = new Vector3(value, 1, 1);
-        if (GenericSinglngton<HeroData>.Instance.hp <= 0)
+
+        if (GenericSinglngton<HeroUnitData>.Instance.hp <= 0)
         {
             Die();
             DonMove();
@@ -121,50 +110,50 @@ public class Hero : MonoBehaviour
     }
     public void HittedColer()//hitted
     {
-        if (GenericSinglngton<HeroData>.Instance.hit == true)
+        if (GenericSinglngton<HeroUnitData>.Instance.hit == true)
         {
-            GenericSinglngton<HeroData>.Instance.cortimer += Time.deltaTime;
-            _render.material.color = Color.red;
-            if (GenericSinglngton<HeroData>.Instance.cortimer > 0.5f)
+            GenericSinglngton<HeroUnitData>.Instance.cortimer += Time.deltaTime;
+            GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.red;
+            if (GenericSinglngton<HeroUnitData>.Instance.cortimer > 0.5f)
             {
-                _render.material.color = _heroColor;
-                GenericSinglngton<HeroData>.Instance.cortimer = 0f;
-                GenericSinglngton<HeroData>.Instance.hit = false;
+                GetComponentInChildren<SkinnedMeshRenderer>().material.color = _heroColor;
+                GenericSinglngton<HeroUnitData>.Instance.cortimer = 0f;
+                GenericSinglngton<HeroUnitData>.Instance.hit = false;
             }
         }
     }
     public void Die()//die 
     {
-       // _ani.SetInteger("hero", (int)heromove.die);
+        GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetInteger("hero", (int)heromove.die);
         GameOver();
-        GenericSinglngton<HeroData>.Instance.move = false;
+        GenericSinglngton<HeroUnitData>.Instance.move = false;
     }
     public void GameOver()
     {
         GenericSinglngton<GameoverUI>.Instance.gameObject.SetActive(true);
-        GenericSinglngton<GameoverUI>.Instance.timechange(GenericSinglngton<HeroData>.Instance.dietimer);
+        GenericSinglngton<GameoverUI>.Instance.timechange(GenericSinglngton<HeroUnitData>.Instance.dietimer);
 
     }
     public void ReMove()//die
     {
-        if (GenericSinglngton<HeroData>.Instance.move == false)
+        if (GenericSinglngton<HeroUnitData>.Instance.move == false)
         {
-            GenericSinglngton<HeroData>.Instance.dietimer -= Time.deltaTime;
-            if (GenericSinglngton<HeroData>.Instance.dietimer <= 0f)
+            GenericSinglngton<HeroUnitData>.Instance.dietimer -= Time.deltaTime;
+            if (GenericSinglngton<HeroUnitData>.Instance.dietimer <= 0f)
             {
                 GenericSinglngton<GameoverUI>.Instance.gameObject.SetActive(false);
-                GenericSinglngton<HeroData>.Instance.hp = _maxHP;
-                GenericSinglngton<HeroData>.Instance.move = true;
-              //  _ani.SetInteger("hero", (int)heromove.a);
-                 // _ani.SetTrigger("Remove");
-                GenericSinglngton<HeroData>.Instance.dietimer = 5f;
+                GenericSinglngton<HeroUnitData>.Instance.hp = _maxHP;
+                GenericSinglngton<HeroUnitData>.Instance.move = true;
+                GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetInteger("hero", (int)heromove.a);
+                GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetTrigger("Remove");
+                GenericSinglngton<HeroUnitData>.Instance.dietimer = 5f;
             }
         }
     }
     public void DonMove()//캐릭터
     {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
-        _Agent.destination = gameObject.transform.position;
+        GenericSinglngton<HeroUnitData>.Instance._HeroAgent.destination = gameObject.transform.position;
     }
 }
 

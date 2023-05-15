@@ -66,7 +66,7 @@
     <Compile Include="Assets\script\Loby\ResultText.cs" />
     <Compile Include="Assets\script\Csv Folder\HeroDataRead.cs" />
     <Compile Include="Assets\script\Main\TowerScript\TowerHpCon.cs" />
-    <Compile Include="Assets\script\Main\Hero\HeroData.cs" />
+    <Compile Include="Assets\script\Main\Hero\HeroUnitData.cs" />
     <Compile Include="Assets\script\Main\Hero\CameraCon.cs" />
     <Compile Include="Assets\script\Start\MainScChange.cs" />
     <Compile Include="Assets\script\Main\Monster\Orangefox.cs" />
