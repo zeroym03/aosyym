@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class HeroData :MonoBehaviour
+public class HeroUnitData : MonoBehaviour
 {
     int _Damages = 70;
     public int Damages { get { return _Damages; } set { _Damages = value; } }
