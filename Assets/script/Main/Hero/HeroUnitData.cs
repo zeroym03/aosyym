@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 public class HeroUnitData : MonoBehaviour
-{
+{// 파일에서 정보불러와서 입력받아 저장받고 각각에 전달하는걸로
+    private void Start()
+    {
+        DontDestroyOnLoad(this);
+    }
     int _Damages = 70;
     public int Damages { get { return _Damages; } set { _Damages = value; } }
 
@@ -25,7 +28,7 @@ public class HeroUnitData : MonoBehaviour
     bool _hit = false;
     public bool hit { get { return _hit; } set { _hit = value; } }
 
-    bool _move = false;
+    bool _move = true;
     public bool move { get { return _move; } set { _move = value; } }
 
     bool _attack = false;
@@ -33,6 +36,8 @@ public class HeroUnitData : MonoBehaviour
 
     string _name = "yym";
     public string Name { get { return _name; } set { _name = value; } }
+    bool _teamBlue = true;// 게임 시작시 팀설정
+    public bool teamBlue { get { return _teamBlue; } set { _teamBlue = value; } }
     NavMeshAgent _Agent;
 
     public NavMeshAgent _HeroAgent
@@ -44,7 +49,7 @@ public class HeroUnitData : MonoBehaviour
         }
     }
     Animator _ani;
-    public Animator _HeroAni // Hero에 데이터 전부 이런현식으로 변경 
+    public Animator _HeroAni 
     {
         get { return _ani; }
         set { _ani = value; }

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
+
 enum heromove
 {
     Idle,
@@ -14,10 +14,10 @@ enum heromove
 public class Hero : MonoBehaviour
 {
     Color _heroColor;
-    Transform _hero;
+    //Transform _hero;
 
     //전부 HeroData로 옮길것
-    protected HpDown _hpimage;
+    HpDown _hpimage;
     int _hpdown = 5;//임시 피해변수
     int _maxHP = 0;
     private void Awake()
@@ -27,10 +27,15 @@ public class Hero : MonoBehaviour
         GenericSinglngton<HeroUnitData>.Instance._HeroSword = GetComponentInChildren<BoxCollider>();
         _heroColor = GetComponentInChildren<SkinnedMeshRenderer>().material.color;
         _maxHP = GenericSinglngton<HeroUnitData>.Instance.hp;
-
+        gameObject.SetActive(false);
+        if (GenericSinglngton<HeroUnitData>.Instance.teamBlue == true)
+        {  gameObject.transform.position = new Vector3(-71, 0, -71);}
+        else { gameObject.transform.position = new Vector3(71, 0, 71); }
+        gameObject.SetActive(true);
     }
     void Start()
     {
+ 
     }
     void Update()
     {
