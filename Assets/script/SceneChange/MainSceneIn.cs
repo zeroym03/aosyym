@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainScChange : MonoBehaviour
+public class MainSceneIn: MonoBehaviour
 {
     public void OnBtnMainScChange()
     {

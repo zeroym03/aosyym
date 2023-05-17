@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Loby : MonoBehaviour
+public class LobySceneIn : MonoBehaviour
 {
     public void onbuttonpres()
     {
