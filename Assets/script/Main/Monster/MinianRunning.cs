@@ -1,7 +1,7 @@
 using UnityEngine;
 public class MinianRunning : GameState
 {
-    float _mondelay = 40;
+    float _mondelay = 4.0f;
     float _moncount = 50;
     float _montime = 0;
     float _nowmonsterCount = 0;
@@ -19,6 +19,7 @@ public class MinianRunning : GameState
         _montime += Time.deltaTime;
         if (_montime >= _mondelay && _nowmonsterCount < _moncount)
         {
+
             GenericSinglngton<MinianCon>.Instance.Addmonster();
             _montime = 0f;
             _nowmonsterCount++;

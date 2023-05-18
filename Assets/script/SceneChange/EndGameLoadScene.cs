@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class LobySceneIn : MonoBehaviour
+public class EndGameLoadScene : MonoBehaviour
 {
     public void onbuttonpres()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Loby");
+        SceneManager.LoadScene("EndGame");
     }
 }

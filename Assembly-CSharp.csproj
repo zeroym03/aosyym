@@ -62,21 +62,22 @@
     <Compile Include="Assets\script\Csv Folder\CsvReader.cs" />
     <Compile Include="Assets\script\Main\Hero\HpDown.cs" />
     <Compile Include="Assets\script\Singlngton\GenericSinglngton.cs" />
+    <Compile Include="Assets\script\Main\GameCon\GameCon.cs" />
     <Compile Include="Assets\script\Main\TowerScript\TowerDatas.cs" />
     <Compile Include="Assets\script\Loby\ResultText.cs" />
     <Compile Include="Assets\script\Csv Folder\HeroDataRead.cs" />
+    <Compile Include="Assets\script\Main\Monster\MinianRunning.cs" />
     <Compile Include="Assets\script\Main\TowerScript\TowerHpCon.cs" />
     <Compile Include="Assets\script\Main\Hero\HeroUnitData.cs" />
     <Compile Include="Assets\script\Main\Hero\CameraCon.cs" />
-    <Compile Include="Assets\script\SceneChange\MainSceneIn.cs" />
-    <Compile Include="Assets\script\Main\Monster\Orangefox.cs" />
-    <Compile Include="Assets\script\SceneChange\StartSceneIn.cs" />
-    <Compile Include="Assets\script\Main\Hero\Hero.cs" />
-    <Compile Include="Assets\script\SceneChange\LobySceneIn.cs" />
     <Compile Include="Assets\script\Csv Folder\CsvPrintText.cs" />
-    <Compile Include="Assets\script\Main\Monster\MinianRunning.cs" />
-    <Compile Include="Assets\script\Main\GameCon\GameCon.cs" />
+    <Compile Include="Assets\script\SceneChange\MainLoadScene.cs" />
+    <Compile Include="Assets\script\Main\Monster\Orangefox.cs" />
+    <Compile Include="Assets\script\SceneChange\StartLoadScene.cs" />
+    <Compile Include="Assets\script\Main\Hero\Hero.cs" />
     <Compile Include="Assets\script\Main\Monster\MinianCon.cs" />
+    <Compile Include="Assets\script\SceneChange\EndGameLoadScene.cs" />
+    <Compile Include="Assets\script\Main\Monster\Minian Move Line\MidLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Minian\WizardPolyArt\Shader\PolyArtMaskTint.shader" />

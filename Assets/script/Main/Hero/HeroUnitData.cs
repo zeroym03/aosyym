@@ -41,23 +41,14 @@ public class HeroUnitData : MonoBehaviour
     NavMeshAgent _Agent;
 
     public NavMeshAgent _HeroAgent
-    {
-        get { return _Agent; }
-        set
-        {
-            _Agent = value;
-        }
-    }
+    { get { return _Agent; } set { _Agent = value; } }
     Animator _ani;
-    public Animator _HeroAni 
-    {
-        get { return _ani; }
-        set { _ani = value; }
-    }
-     BoxCollider _Sword;
+    public Animator _HeroAni
+    { get { return _ani; } set { _ani = value; } }
+    BoxCollider _Sword;
     public BoxCollider _HeroSword
-    {
-        get { return _Sword; }
-        set { _Sword = value; }
-    }
+    { get { return _Sword; } set { _Sword = value; } }
+    Transform HeroTransform;
+    public Transform _herotransform
+    { get { return HeroTransform; } set { HeroTransform = value; } }
 }

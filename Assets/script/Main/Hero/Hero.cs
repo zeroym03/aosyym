@@ -13,43 +13,43 @@ enum heromove
 }
 public class Hero : MonoBehaviour
 {
-    Color _heroColor;
-    //Transform _hero;
+    [SerializeField] GameoverUI _gameoverUI;
+    [SerializeField] HpDown _hpimage;
+    HeroUnitData heroUnitData = new HeroUnitData();
 
-    //전부 HeroData로 옮길것
-    HpDown _hpimage;
+    Color _heroColor;
     int _hpdown = 5;//임시 피해변수
     int _maxHP = 0;
     private void Awake()
     {
-        GenericSinglngton<HeroUnitData>.Instance._HeroAni = GetComponentInChildren<Animator>();
-        GenericSinglngton<HeroUnitData>.Instance._HeroAgent = GetComponent<NavMeshAgent>();
-        GenericSinglngton<HeroUnitData>.Instance._HeroSword = GetComponentInChildren<BoxCollider>();
+        heroUnitData._HeroAni = GetComponentInChildren<Animator>();
+        heroUnitData._HeroAgent = GetComponent<NavMeshAgent>();
+        heroUnitData._HeroSword = GetComponentInChildren<BoxCollider>();
         _heroColor = GetComponentInChildren<SkinnedMeshRenderer>().material.color;
-        _maxHP = GenericSinglngton<HeroUnitData>.Instance.hp;
+        _maxHP = heroUnitData.hp;
         gameObject.SetActive(false);
-        if (GenericSinglngton<HeroUnitData>.Instance.teamBlue == true)
-        {  gameObject.transform.position = new Vector3(-71, 0, -71);}
+        if (heroUnitData.teamBlue == true)
+        { gameObject.transform.position = new Vector3(-71, 0, -71); }
         else { gameObject.transform.position = new Vector3(71, 0, 71); }
         gameObject.SetActive(true);
     }
-    void Start()
+    private void Start()
     {
- 
+        HeroDataReset();
     }
     void Update()
     {
-        if (GenericSinglngton<HeroUnitData>.Instance.hit == false && GenericSinglngton<HeroUnitData>.Instance.move == true) Hitted();//연속피해 방지
+        if (heroUnitData.hit == false && heroUnitData.move == true) Hitted();  //연속피해 방지
         HittedColer();
-        ReMove();
-        Attack();
-        if (GenericSinglngton<HeroUnitData>.Instance.move == true)
+       if (heroUnitData.attack == false) Attack();
+        if (heroUnitData.move == true && heroUnitData.attack == false)
         {
-            if (GenericSinglngton<HeroUnitData>.Instance.attack == false)
-            {
-                MouseClick();
-            }
+            MouseClick();
         }
+        if (heroUnitData.move == false)
+        { GameOver(); ReMove(); }
+        attacktimeCon();
+        heroUnitData._herotransform = transform;
     }
     void MouseClick()//move
     {
@@ -59,55 +59,50 @@ public class Hero : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Ground")))
             {
-                GenericSinglngton<HeroUnitData>.Instance._HeroAgent.SetDestination(hit.point);
-                Debug.Log(GenericSinglngton<HeroUnitData>.Instance._HeroAgent.destination);
+                heroUnitData._HeroAgent.SetDestination(hit.point);
+                Debug.Log(heroUnitData._HeroAgent.destination);
             }
         }
-        if (Vector3.Distance(gameObject.transform.position, GenericSinglngton<HeroUnitData>.Instance._HeroAgent.destination) >= 0.3f)// 현위치 - 목적이 계산
+        if (Vector3.Distance(gameObject.transform.position, heroUnitData._HeroAgent.destination) >= 0.3f)// 현위치 - 목적이 계산
         {
-            GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetInteger("hero", (int)heromove.move);
+            heroUnitData._HeroAni.SetInteger("hero", (int)heromove.move);
         }
         else
         {
-            GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetInteger("hero", (int)heromove.Idle);
+            heroUnitData._HeroAni.SetInteger("hero", (int)heromove.Idle);
         }
     }
     public void Attack()//attack
     {
-
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            GenericSinglngton<HeroUnitData>.Instance.attack = true;
-            GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetTrigger("Attack");
-            GenericSinglngton<HeroUnitData>.Instance._HeroSword.enabled = true;
+            heroUnitData.attack = true;
+            heroUnitData._HeroAni.SetTrigger("Attack");
+            heroUnitData._HeroSword.enabled = true;
             DonMove();
         }
-        if (GenericSinglngton<HeroUnitData>.Instance.attack == true)
-        {
-            GenericSinglngton<HeroUnitData>.Instance.attacktime += Time.deltaTime;
-            EndAttack();
-        }
+        
     }
     void EndAttack()//attack
     {
-        if (GenericSinglngton<HeroUnitData>.Instance.attacktime > 0.5f)
+        if (heroUnitData.attacktime > 0.5f)
         {
-            GenericSinglngton<HeroUnitData>.Instance.attack = false;
-            GenericSinglngton<HeroUnitData>.Instance._HeroSword.enabled = false;
-            GenericSinglngton<HeroUnitData>.Instance.attacktime = 0f;
+            heroUnitData.attack = false;
+            heroUnitData._HeroSword.enabled = false;
+            heroUnitData.attacktime = 0f;
         }
     }
     public void Hitted()//hitted
     {
         if (Input.GetKeyDown(KeyCode.M) /*_hp >= _hehp1*/)
         {
-            _hpimage.Hpdown((float)GenericSinglngton<HeroUnitData>.Instance.hp / _maxHP);
-            GenericSinglngton<HeroUnitData>.Instance.hp -= _hpdown;
-            GenericSinglngton<HeroUnitData>.Instance.hit = true;
-            Debug.Log("받은피해" + _hpdown + "현재체력" + GenericSinglngton<HeroUnitData>.Instance.hp);
+            heroUnitData.hp -= _hpdown;
+            heroUnitData.hit = true;
+            _hpimage.Hpdown((float)heroUnitData.hp / _maxHP);
+            Debug.Log("받은피해" + _hpdown + "현재체력" + heroUnitData.hp);
         }
 
-        if (GenericSinglngton<HeroUnitData>.Instance.hp <= 0)
+        if (heroUnitData.hp <= 0)
         {
             Die();
             DonMove();
@@ -115,50 +110,67 @@ public class Hero : MonoBehaviour
     }
     public void HittedColer()//hitted
     {
-        if (GenericSinglngton<HeroUnitData>.Instance.hit == true)
+        if (heroUnitData.hit == true)
         {
-            GenericSinglngton<HeroUnitData>.Instance.cortimer += Time.deltaTime;
+            heroUnitData.cortimer += Time.deltaTime;
             GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.red;
-            if (GenericSinglngton<HeroUnitData>.Instance.cortimer > 0.5f)
+            if (heroUnitData.cortimer > 0.5f)
             {
                 GetComponentInChildren<SkinnedMeshRenderer>().material.color = _heroColor;
-                GenericSinglngton<HeroUnitData>.Instance.cortimer = 0f;
-                GenericSinglngton<HeroUnitData>.Instance.hit = false;
+                heroUnitData.cortimer = 0f;
+                heroUnitData.hit = false;
             }
         }
     }
     public void Die()//die 
     {
-        GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetInteger("hero", (int)heromove.die);
-        GameOver();
-        GenericSinglngton<HeroUnitData>.Instance.move = false;
+        heroUnitData._HeroAni.SetInteger("hero", (int)heromove.die);
+        heroUnitData.move = false;
     }
     public void GameOver()
     {
-        GenericSinglngton<GameoverUI>.Instance.gameObject.SetActive(true);
-        GenericSinglngton<GameoverUI>.Instance.timechange(GenericSinglngton<HeroUnitData>.Instance.dietimer);
-
+        if (_gameoverUI.gameObject.active == false) { _gameoverUI.gameObject.SetActive(true);}
+        _gameoverUI.timechange(heroUnitData.dietimer);
     }
     public void ReMove()//die
     {
-        if (GenericSinglngton<HeroUnitData>.Instance.move == false)
+        heroUnitData.dietimer -= Time.deltaTime;
+        if (heroUnitData.dietimer <= 0f)
         {
-            GenericSinglngton<HeroUnitData>.Instance.dietimer -= Time.deltaTime;
-            if (GenericSinglngton<HeroUnitData>.Instance.dietimer <= 0f)
-            {
-                GenericSinglngton<GameoverUI>.Instance.gameObject.SetActive(false);
-                GenericSinglngton<HeroUnitData>.Instance.hp = _maxHP;
-                GenericSinglngton<HeroUnitData>.Instance.move = true;
-                GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetInteger("hero", (int)heromove.a);
-                GenericSinglngton<HeroUnitData>.Instance._HeroAni.SetTrigger("Remove");
-                GenericSinglngton<HeroUnitData>.Instance.dietimer = 5f;
-            }
+       
+            heroUnitData._HeroAni.SetInteger("hero", (int)heromove.a);
+            heroUnitData._HeroAni.SetTrigger("Remove");
+            heroUnitData.dietimer = 5f;
+            HeroDataReset();
         }
     }
     public void DonMove()//캐릭터
     {
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        GenericSinglngton<HeroUnitData>.Instance._HeroAgent.destination = gameObject.transform.position;
+        heroUnitData._HeroAgent.destination = gameObject.transform.position;
+    }
+
+
+    // 데이터 관리용 파일에 옮기는걸 생각중
+   public void attacktimeCon()
+    {
+        if (heroUnitData.attack == true)
+        {
+            heroUnitData.attacktime += Time.deltaTime;
+            EndAttack();
+        }
+    }
+    public void HeroDataReset()
+    {
+        heroUnitData.attacktime = 0f;
+        heroUnitData.dietimer = 5f;
+        heroUnitData.cortimer = 0f;
+        heroUnitData._HeroSword.enabled = false;
+        heroUnitData.attack = false;
+        heroUnitData.hit = false;
+        heroUnitData.hp = _maxHP;
+        heroUnitData.move = true;
+        _gameoverUI.gameObject.SetActive(false);
+        _hpimage.Hpdown((float)heroUnitData.hp / _maxHP);
     }
 }
 

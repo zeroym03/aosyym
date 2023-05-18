@@ -8,10 +8,6 @@ public class GameCon : MonoBehaviour
     }
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    MonsterManager.getInstance().Addmonster();
-        //}
         if (_state != null) _state.MainLoop();
     }
     public void ChangeGameState(GameState state)

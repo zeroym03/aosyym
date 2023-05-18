@@ -200,6 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3370343765905923621}
   - component: {fileID: 3370343765905923622}
+  - component: {fileID: 1557220376069857170}
   m_Layer: 0
   m_Name: foxob
   m_TagString: Untagged
@@ -236,12 +237,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbdb4d8570ecae4d88502c5b78577ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hero: {fileID: 0}
   _rotate: {fileID: 7407593523044899575}
-  _speed: 2
   _hp: 30
   _attack: 20
   _ani: {fileID: 4280376192489413175}
+--- !u!195 &1557220376069857170
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370343765905923623}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 10
+  m_Acceleration: 10000
+  avoidancePriority: 50
+  m_AngularSpeed: 2000
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3370343765937801949
 GameObject:
   m_ObjectHideFlags: 0
