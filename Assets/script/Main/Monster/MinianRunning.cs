@@ -7,8 +7,7 @@ public class MinianRunning : GameState
     float _nowmonsterCount = 0;
     public override void OnEnter()
     {
-      //  GenericSinglngton<UIData>.Instans.Init();
-     //   var Unitlist = GenericSinglngton<RTSCon>.Instans.UnitconList;
+        GenericSinglngton<MinianCon>.Instance.Addmonster();
     }
     public override void MainLoop()
     {

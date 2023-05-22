@@ -63,6 +63,7 @@
     <Compile Include="Assets\script\Main\Hero\HpDown.cs" />
     <Compile Include="Assets\script\Singlngton\GenericSinglngton.cs" />
     <Compile Include="Assets\script\Main\GameCon\GameCon.cs" />
+    <Compile Include="Assets\script\Main\Monster\Minian Move Line\MidLine.cs" />
     <Compile Include="Assets\script\Main\TowerScript\TowerDatas.cs" />
     <Compile Include="Assets\script\Loby\ResultText.cs" />
     <Compile Include="Assets\script\Csv Folder\HeroDataRead.cs" />
@@ -77,7 +78,6 @@
     <Compile Include="Assets\script\Main\Hero\Hero.cs" />
     <Compile Include="Assets\script\Main\Monster\MinianCon.cs" />
     <Compile Include="Assets\script\SceneChange\EndGameLoadScene.cs" />
-    <Compile Include="Assets\script\Main\Monster\Minian Move Line\MidLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Minian\WizardPolyArt\Shader\PolyArtMaskTint.shader" />

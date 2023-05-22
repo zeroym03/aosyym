@@ -12,7 +12,7 @@ public class MinianCon : MonoBehaviour
         if (_MidPaths == null)
         {
             GameObject temp = Resources.Load("Prefab/TowerFile") as GameObject;// Resources.Load("Prefab/TowerFile")에있는  스크립트
-            _MidPaths = Instantiate(temp).GetComponent<MidLine>();
+            _MidPaths = Instantiate(temp).GetComponentInChildren<MidLine>();
             DontDestroyOnLoad(temp);
         }
         return _MidPaths;
@@ -21,10 +21,11 @@ public class MinianCon : MonoBehaviour
     {
         if (_minian == null)
         {
-            _minian = Resources.Load("Prefab/foxob") as GameObject;
+            _minian = Resources.Load("Prefab/OrangeFox") as GameObject;
         }
         _GatPahts();
         Orangefox mon = Instantiate(_minian).GetComponent<Orangefox>();
+        Debug.Log(_MidPaths.transform.position);
         mon.transform.position = _MidPaths.transform.position;
         Minian tempmon = new Minian();
         tempmon.HP = 200;

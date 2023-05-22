@@ -2,9 +2,13 @@ using UnityEngine;
 public class GameCon : MonoBehaviour
 {
     GameState _state;
-    private void Start()
+    private void Awake()
     {
         ChangeGameState(new MinianRunning());
+
+    }
+    private void Start()
+    {
     }
     void Update()
     {
