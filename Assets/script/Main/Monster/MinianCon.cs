@@ -6,18 +6,18 @@ public class MinianCon : MonoBehaviour
 {
     List<Orangefox> _minianList = new List<Orangefox>();
     GameObject _minian;
-    MidLine _MidPaths;
-    public MidLine _GatPahts()
+    LinePaths[] _LinePaths;
+    public LinePaths[] _GatPahts()
     {
-        if (_MidPaths == null)
+        if (_LinePaths == null)
         {
             GameObject temp = Resources.Load("Prefab/TowerFile") as GameObject;// Resources.Load("Prefab/TowerFile")에있는  스크립트
-            _MidPaths = Instantiate(temp).GetComponentInChildren<MidLine>();
+            _LinePaths = Instantiate(temp).GetComponentsInChildren<LinePaths>();
             DontDestroyOnLoad(temp);
         }
-        return _MidPaths;
+        return _LinePaths;
     }
-    public void Addmonster()
+    public void Addmonster(int _Line)
     {
         if (_minian == null)
         {
@@ -25,9 +25,11 @@ public class MinianCon : MonoBehaviour
         }
         _GatPahts();
         Orangefox mon = Instantiate(_minian).GetComponent<Orangefox>();
-        Debug.Log(_MidPaths.transform.position);
-        mon.transform.position = _MidPaths.transform.position;
+        mon.transform.position = _LinePaths[_Line].transform.position;
+        Debug.Log(mon.transform.position);
         Minian tempmon = new Minian();
+        tempmon.LINE = _Line;
+        tempmon.Transform = _LinePaths[_Line].transform;
         tempmon.HP = 200;
         tempmon.SPEED = 3f;
         tempmon.NAME = "근접여우";
@@ -37,6 +39,8 @@ public class MinianCon : MonoBehaviour
     }
         public class Minian 
     {
+        public Transform Transform;
+        public int LINE;
         public int HP;
         public float SPEED;
         public string NAME;
