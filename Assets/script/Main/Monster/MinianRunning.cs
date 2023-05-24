@@ -1,4 +1,13 @@
 using UnityEngine;
+enum ELine
+{
+    _midline,
+    _topline,
+    _botline,
+    _redmidline,
+    _redtopline,
+    _redbotline,
+}
 public class MinianRunning : GameState
 {
     float _mondelay = 4.0f;
@@ -13,13 +22,7 @@ public class MinianRunning : GameState
     int _redbotline = 5;
     public override void OnEnter()
     {
-        GenericSinglngton<MinianCon>.Instance.Addmonster(_midline);
-        GenericSinglngton<MinianCon>.Instance.Addmonster(_topline);
-        GenericSinglngton<MinianCon>.Instance.Addmonster(_botline);
-        //GenericSinglngton<MinianCon>.Instance.Addmonster(_redmidline);
-        //GenericSinglngton<MinianCon>.Instance.Addmonster(_redtopline);
-        //GenericSinglngton<MinianCon>.Instance.Addmonster(_redbotline);
-
+        MinianSummon();
     }
     public override void MainLoop()
     {
@@ -30,12 +33,18 @@ public class MinianRunning : GameState
         _montime += Time.deltaTime;
         if (_montime >= _mondelay && _nowmonsterCount < _moncount)
         {
-
-            GenericSinglngton<MinianCon>.Instance.Addmonster(_midline);
-            GenericSinglngton<MinianCon>.Instance.Addmonster(_topline);
-            GenericSinglngton<MinianCon>.Instance.Addmonster(_botline);
+            MinianSummon();
             _montime = 0f;
             _nowmonsterCount++;
         }
+    }
+    void MinianSummon()
+    {
+        GenericSinglngton<MinianCon>.Instance.Addmonster(_midline, ETeamColor.Red);
+        GenericSinglngton<MinianCon>.Instance.Addmonster(_topline, ETeamColor.Red);
+        GenericSinglngton<MinianCon>.Instance.Addmonster(_botline, ETeamColor.Red);
+        GenericSinglngton<MinianCon>.Instance.Addmonster(_redmidline, ETeamColor.Blue);
+        GenericSinglngton<MinianCon>.Instance.Addmonster(_redtopline, ETeamColor.Blue);
+        GenericSinglngton<MinianCon>.Instance.Addmonster(_redbotline, ETeamColor.Blue);
     }
 }

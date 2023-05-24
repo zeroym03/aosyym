@@ -16,7 +16,6 @@ public class Hero : MonoBehaviour
     [SerializeField] GameoverUI _gameoverUI;
     [SerializeField] HpDown _hpimage;
     HeroUnitData heroUnitData = new HeroUnitData();
-
     Color _heroColor;
     int _hpdown = 5;//임시 피해변수
     int _maxHP = 0;

@@ -17,7 +17,7 @@ public class MinianCon : MonoBehaviour
         }
         return _LinePaths;
     }
-    public void Addmonster(int _Line)
+    public void Addmonster(int _Line, ETeamColor eTeamColor)
     {
         if (_minian == null)
         {
@@ -33,6 +33,7 @@ public class MinianCon : MonoBehaviour
         tempmon.HP = 200;
         tempmon.SPEED = 3f;
         tempmon.NAME = "근접여우";
+        tempmon._eTeamColor = eTeamColor;
         tempmon.EDefType = EDefType.None; 
         mon.init(tempmon);
         _minianList.Add(mon);
@@ -44,6 +45,7 @@ public class MinianCon : MonoBehaviour
         public int HP;
         public float SPEED;
         public string NAME;
+        public ETeamColor _eTeamColor;
         public EDefType EDefType;
     }
     //public Minian GetTarget(Vector3 position, float dist)

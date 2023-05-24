@@ -78,6 +78,7 @@
     <Compile Include="Assets\script\Main\Hero\Hero.cs" />
     <Compile Include="Assets\script\Main\Monster\MinianCon.cs" />
     <Compile Include="Assets\script\SceneChange\EndGameLoadScene.cs" />
+    <Compile Include="Assets\script\Csv Folder\AllDataSingletun.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Minian\WizardPolyArt\Shader\PolyArtMaskTint.shader" />
