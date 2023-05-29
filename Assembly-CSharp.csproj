@@ -68,6 +68,7 @@
     <Compile Include="Assets\script\Loby\ResultText.cs" />
     <Compile Include="Assets\script\Csv Folder\HeroDataRead.cs" />
     <Compile Include="Assets\script\Main\Monster\MinianRunning.cs" />
+    <Compile Include="Assets\script\Csv Folder\AllDataSingletun.cs" />
     <Compile Include="Assets\script\Main\TowerScript\TowerHpCon.cs" />
     <Compile Include="Assets\script\Main\Hero\HeroUnitData.cs" />
     <Compile Include="Assets\script\Main\Hero\CameraCon.cs" />
@@ -78,13 +79,27 @@
     <Compile Include="Assets\script\Main\Hero\Hero.cs" />
     <Compile Include="Assets\script\Main\Monster\MinianCon.cs" />
     <Compile Include="Assets\script\SceneChange\EndGameLoadScene.cs" />
-    <Compile Include="Assets\script\Csv Folder\AllDataSingletun.cs" />
+    <Compile Include="Assets\Polytope Studio\Lowpoly Medieval Demos\Environment_Free\MouseLook.cs" />
+    <Compile Include="Assets\Polytope Studio\Lowpoly Medieval Demos\Environment_Free\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Water_Shader_WebGl.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Plants_Shader.shader" />
     <None Include="Assets\Minian\WizardPolyArt\Shader\PolyArtMaskTint.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Opaque_Shader_VS.shader" />
     <None Include="Assets\iteam\nnj3de_CartoonFantasyWeaponMinipack\README.txt" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Opaque_Shader.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Foliage_Shader.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Water_Shader.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Flowers_Shader.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Rock_Shader_VS.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Plants_Shader_VS.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Flowers_Shader_VS.shader" />
     <None Include="Assets\iteam\Elven Weapons\Readme.txt" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Rock_Shader.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\VS_indirect.cginc" />
     <None Include="Assets\Minian\WizardPolyArt\SRP\HowToTestSRPs.txt" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Foliage_Shader_VS.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -5,7 +5,6 @@ public class GameCon : MonoBehaviour
     private void Awake()
     {
         ChangeGameState(new MinianRunning());
-
     }
     private void Start()
     {

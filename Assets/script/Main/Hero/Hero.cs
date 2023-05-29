@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-
 enum heromove
 {
     Idle,
@@ -21,21 +20,19 @@ public class Hero : MonoBehaviour
     int _maxHP = 0;
     private void Awake()
     {
+        HeroAwakeData();
+        HeroStartTrans();
+    }
+    void HeroAwakeData()
+    {
         heroUnitData._HeroAni = GetComponentInChildren<Animator>();
         heroUnitData._HeroAgent = GetComponent<NavMeshAgent>();
         heroUnitData._HeroSword = GetComponentInChildren<BoxCollider>();
         _heroColor = GetComponentInChildren<SkinnedMeshRenderer>().material.color;
         _maxHP = heroUnitData.hp;
-        gameObject.SetActive(false);
-        if (heroUnitData.teamBlue == true)
-        { gameObject.transform.position = new Vector3(-71, 0, -71); }
-        else { gameObject.transform.position = new Vector3(71, 0, 71); }
-        gameObject.SetActive(true);
     }
     private void Start()
-    {
-        HeroDataReset();
-    }
+    {        HeroDataReset();    }
     void Update()
     {
         if (heroUnitData.hit == false && heroUnitData.move == true) Hitted();  //연속피해 방지
@@ -170,6 +167,14 @@ public class Hero : MonoBehaviour
         heroUnitData.move = true;
         _gameoverUI.gameObject.SetActive(false);
         _hpimage.Hpdown((float)heroUnitData.hp / _maxHP);
+    }
+    void HeroStartTrans()
+    {
+        gameObject.SetActive(false);
+        if (heroUnitData.teamBlue == true)
+        { gameObject.transform.position = new Vector3(-71, 0, -71); }
+        else { gameObject.transform.position = new Vector3(71, 0, 71); }
+        gameObject.SetActive(true);
     }
 }
 
