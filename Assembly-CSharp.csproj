@@ -61,6 +61,7 @@
     <Compile Include="Assets\script\Main\Hero\GameoverUI.cs" />
     <Compile Include="Assets\script\Csv Folder\CsvReader.cs" />
     <Compile Include="Assets\script\Main\Hero\HpDown.cs" />
+    <Compile Include="Assets\Polytope Studio\Lowpoly Medieval Demos\Environment_Free\PlayerMovement.cs" />
     <Compile Include="Assets\script\Singlngton\GenericSinglngton.cs" />
     <Compile Include="Assets\script\Main\GameCon\GameCon.cs" />
     <Compile Include="Assets\script\Main\Monster\Minian Move Line\LinePaths.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\script\Csv Folder\AllDataSingletun.cs" />
     <Compile Include="Assets\script\Main\TowerScript\TowerHpCon.cs" />
     <Compile Include="Assets\script\Main\Hero\HeroUnitData.cs" />
+    <Compile Include="Assets\Polytope Studio\Lowpoly Medieval Demos\Environment_Free\MouseLook.cs" />
     <Compile Include="Assets\script\Main\Hero\CameraCon.cs" />
     <Compile Include="Assets\script\Csv Folder\CsvPrintText.cs" />
     <Compile Include="Assets\script\SceneChange\MainLoadScene.cs" />
@@ -79,8 +81,6 @@
     <Compile Include="Assets\script\Main\Hero\Hero.cs" />
     <Compile Include="Assets\script\Main\Monster\MinianCon.cs" />
     <Compile Include="Assets\script\SceneChange\EndGameLoadScene.cs" />
-    <Compile Include="Assets\Polytope Studio\Lowpoly Medieval Demos\Environment_Free\MouseLook.cs" />
-    <Compile Include="Assets\Polytope Studio\Lowpoly Medieval Demos\Environment_Free\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Water_Shader_WebGl.shader" />
