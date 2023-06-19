@@ -235,6 +235,7 @@ Transform:
   - {fileID: 3598542892932707594}
   - {fileID: 3598542891904743012}
   - {fileID: 3598542890960768144}
+  - {fileID: 8140151480824769508}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -782,6 +783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red mid Tower 2
       objectReference: {fileID: 0}
+    - target: {fileID: 951935534923622405, guid: c47516db662d62942b58a78ca6142ae2, type: 3}
+      propertyPath: m_TagString
+      value: Red
+      objectReference: {fileID: 0}
     - target: {fileID: 951935534923854223, guid: c47516db662d62942b58a78ca6142ae2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -851,6 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   beforetower: {fileID: 3598542891187979333}
 --- !u!1001 &3598542891023885444
 PrefabInstance:
@@ -866,6 +872,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue bot Tower 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -980,6 +990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   beforetower: {fileID: 0}
 --- !u!1001 &3598542891112317567
 PrefabInstance:
@@ -995,6 +1006,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue mid Tower 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -1104,6 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   beforetower: {fileID: 3598542891672364725}
 --- !u!4 &3598542891112695291 stripped
 Transform:
@@ -1124,6 +1140,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Red Tap Tower 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -1238,6 +1258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   beforetower: {fileID: 0}
 --- !u!1001 &3598542891305118918
 PrefabInstance:
@@ -1253,6 +1274,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue house Tower 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -1367,6 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d8ba64e9ed1fa48a7763fbdcf9b6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   topTower: {fileID: 3598542892724693966}
   midTower: {fileID: 3598542890950309591}
   botTower: {fileID: 3598542892934750806}
@@ -1384,6 +1410,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Red bot Tower 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -1493,6 +1523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   beforetower: {fileID: 0}
 --- !u!4 &3598542891468711064 stripped
 Transform:
@@ -1513,6 +1544,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue mid Tower 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -1627,6 +1662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   beforetower: {fileID: 3598542892466865980}
 --- !u!1001 &3598542891830778646
 PrefabInstance:
@@ -1642,6 +1678,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Red House Tower 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -1756,7 +1796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d8ba64e9ed1fa48a7763fbdcf9b6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topTower: {fileID: 3598542892127670589}
+  towerColor: 1
+  topTower: {fileID: 3598542892028166949}
   midTower: {fileID: 3598542892745322504}
   botTower: {fileID: 3598542891845510387}
 --- !u!1001 &3598542891988219471
@@ -1773,6 +1814,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Red mid Tower 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -1887,6 +1932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   beforetower: {fileID: 3598542892338451492}
 --- !u!1001 &3598542892098217611
 PrefabInstance:
@@ -1902,6 +1948,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Red bot Tower 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -2016,6 +2066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   beforetower: {fileID: 3598542892809506908}
 --- !u!1001 &3598542892116013579
 PrefabInstance:
@@ -2031,6 +2082,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Red bot Tower 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -2145,6 +2200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   beforetower: {fileID: 3598542892783439589}
 --- !u!1001 &3598542892160291326
 PrefabInstance:
@@ -2160,6 +2216,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue bot Tower 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -2269,6 +2329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   beforetower: {fileID: 3598542891719810056}
 --- !u!4 &3598542892160702074 stripped
 Transform:
@@ -2289,6 +2350,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Red Tap Tower 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -2403,6 +2468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   beforetower: {fileID: 3598542892772546337}
 --- !u!1001 &3598542892480644949
 PrefabInstance:
@@ -2418,6 +2484,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Red Tap Tower 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -2527,6 +2597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   beforetower: {fileID: 3598542892127670589}
 --- !u!4 &3598542892481020113 stripped
 Transform:
@@ -2547,6 +2618,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue bot Tower 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -2661,6 +2736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   beforetower: {fileID: 3598542892811684621}
 --- !u!1001 &3598542892578439248
 PrefabInstance:
@@ -2676,6 +2752,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Red House Tower 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -2790,6 +2870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d8ba64e9ed1fa48a7763fbdcf9b6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   topTower: {fileID: 3598542892028166949}
   midTower: {fileID: 3598542892745322504}
   botTower: {fileID: 3598542891845510387}
@@ -2807,6 +2888,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: blueNexus
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -2921,9 +3006,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9d05d93c2481849a324752952b2b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   twinsTower1: {fileID: 3598542891475291920}
   twinsTower2: {fileID: 3598542892828643625}
-  endCanvas: {fileID: 0}
+  endCanvas: {fileID: 8140151480824769504}
 --- !u!1001 &3598542892680383371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2934,6 +3020,10 @@ PrefabInstance:
     - target: {fileID: 9026719281957224394, guid: 4addd4188dae4234fb912d45cb32b69f, type: 3}
       propertyPath: m_Name
       value: Red Naxus
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026719281957224394, guid: 4addd4188dae4234fb912d45cb32b69f, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 9026719281957447232, guid: 4addd4188dae4234fb912d45cb32b69f, type: 3}
       propertyPath: m_RootOrder
@@ -3007,9 +3097,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9d05d93c2481849a324752952b2b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   twinsTower1: {fileID: 3598542892269598163}
   twinsTower2: {fileID: 3598542892356809659}
-  endCanvas: {fileID: 0}
+  endCanvas: {fileID: 8140151480824769504}
 --- !u!4 &5527551636765322699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9026719281957447232, guid: 4addd4188dae4234fb912d45cb32b69f, type: 3}
@@ -3033,6 +3124,10 @@ PrefabInstance:
     - target: {fileID: 75853217325084983, guid: b85ed8663e4e80343826cf933b7f4a4c, type: 3}
       propertyPath: m_Name
       value: Red mid Tower 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 75853217325084983, guid: b85ed8663e4e80343826cf933b7f4a4c, type: 3}
+      propertyPath: m_TagString
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 75853217325377725, guid: b85ed8663e4e80343826cf933b7f4a4c, type: 3}
       propertyPath: m_RootOrder
@@ -3099,6 +3194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 1
   beforetower: {fileID: 0}
 --- !u!4 &3530236791991584215 stripped
 Transform:
@@ -3119,6 +3215,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue Tap Tower 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -3228,6 +3328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   beforetower: {fileID: 0}
 --- !u!4 &3598542892735747051 stripped
 Transform:
@@ -3248,6 +3349,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue Tap Tower 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -3357,6 +3462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   beforetower: {fileID: 3598542892597680915}
 --- !u!4 &3598542892912571533 stripped
 Transform:
@@ -3377,6 +3483,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue Tap Tower 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -3486,6 +3596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   beforetower: {fileID: 3598542892052138998}
 --- !u!4 &3598542892967580187 stripped
 Transform:
@@ -3506,6 +3617,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue mid Tower 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -3620,6 +3735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   beforetower: {fileID: 0}
 --- !u!1001 &3598542893022928200
 PrefabInstance:
@@ -3635,6 +3751,10 @@ PrefabInstance:
     - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_Name
       value: Blue house Tower 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
+      propertyPath: m_TagString
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
       propertyPath: m_RootOrder
@@ -3744,6 +3864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d8ba64e9ed1fa48a7763fbdcf9b6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerColor: 2
   topTower: {fileID: 3598542892724693966}
   midTower: {fileID: 3598542890950309591}
   botTower: {fileID: 3598542892934750806}
@@ -3751,4 +3872,111 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
   m_PrefabInstance: {fileID: 3598542893022928200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7644487113625325943
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3598542891837757757}
+    m_Modifications:
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936842662059342487, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+      propertyPath: m_Name
+      value: EndCanvas
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+--- !u!1 &8140151480824769504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1936842662059342487, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+  m_PrefabInstance: {fileID: 7644487113625325943}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8140151480824769508 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1936842662059342483, guid: 8214b45af3136994b9b008a49472b8b7, type: 3}
+  m_PrefabInstance: {fileID: 7644487113625325943}
   m_PrefabAsset: {fileID: 0}

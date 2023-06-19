@@ -10,6 +10,6 @@ public class CameraCon : MonoBehaviour
     }
     void cameraCon()
     {
-        transform.position = _transhero.position + new Vector3(0,25,-5);
+        transform.position = _transhero.position + new Vector3(0,30,-5);
     }
 }

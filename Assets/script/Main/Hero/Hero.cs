@@ -14,7 +14,7 @@ public class Hero : MonoBehaviour
 {
     [SerializeField] GameoverUI _gameoverUI;
     [SerializeField] HpDown _hpimage;
-    HeroUnitData heroUnitData = new HeroUnitData();
+    HeroUnitData heroUnitData;
     Color _heroColor;
     int _hpdown = 5;//임시 피해변수
     int _maxHP = 0;
@@ -25,6 +25,7 @@ public class Hero : MonoBehaviour
     }
     void HeroAwakeData()
     {
+        heroUnitData = GenericSinglngton<HeroUnitData>.Instance;
         heroUnitData._HeroAni = GetComponentInChildren<Animator>();
         heroUnitData._HeroAgent = GetComponent<NavMeshAgent>();
         heroUnitData._HeroSword = GetComponentInChildren<BoxCollider>();
@@ -77,7 +78,6 @@ public class Hero : MonoBehaviour
             heroUnitData._HeroSword.enabled = true;
             DonMove();
         }
-        
     }
     void EndAttack()//attack
     {
@@ -125,7 +125,7 @@ public class Hero : MonoBehaviour
     }
     public void GameOver()
     {
-        if (_gameoverUI.gameObject.active == false) { _gameoverUI.gameObject.SetActive(true);}
+        if (_gameoverUI.gameObject.activeSelf == false) { _gameoverUI.gameObject.SetActive(true);}
         _gameoverUI.timechange(heroUnitData.dietimer);
     }
     public void ReMove()//die

@@ -16,7 +16,8 @@ public class Orangefox : MonoBehaviour
     int _pathindex = 0;
     int _nowhp;
     float _speed;
-    float dis;
+    float dis1;
+    float dis2;
     bool monAttack = true;
     Efox _efox;
     [SerializeField] GameObject _rotate;
@@ -26,7 +27,6 @@ public class Orangefox : MonoBehaviour
     GameObject _herotransform;
     private void Start()
     {
-        Debug.Log(transform.position);
  gameObject. transform.position=_mondata.Transform.position;
         Debug.Log(transform.position);
 
@@ -39,7 +39,7 @@ public class Orangefox : MonoBehaviour
 
             if (other.gameObject.layer == 9)//레이어가 9면 아레실행
             {
-                _hp -= GenericSinglngton<AllDataSingletun>.Instance._heroDmg;
+                _hp -= GenericSinglngton<AllDataSingletun>.Instance._heroDmg;//HeroDmg
                 Debug.Log(_hp);
             }
         }
@@ -74,9 +74,8 @@ public class Orangefox : MonoBehaviour
     }
     void MinianSearch(Transform herotrans)
     {
-
-        dis = Vector3.Distance(herotrans.position, transform.position); //거리체크//_hero 왜에도 적 미니언도 잡아야됨
-        if (dis < 20)//적 찾아서 이동시작거리
+        dis1 = Vector3.Distance(herotrans.position, transform.position); //거리체크//_hero 왜에도 적 미니언도 잡아야됨
+        if (dis1 < 20)//적 찾아서 이동시작거리
         { _efox = Efox.attack; }
         else
         {
@@ -85,7 +84,7 @@ public class Orangefox : MonoBehaviour
     }
     void MinianAttack(Transform herotrans)
     {
-        if (dis < 3)//공격 시작거리
+        if (dis1 < 3)//공격 시작거리
         {
             _agent.isStopped = true;
             _ani.SetInteger("legfox", (int)Efox.attack);

@@ -7,6 +7,10 @@ public class MinianCon : MonoBehaviour
     List<Orangefox> _minianList = new List<Orangefox>();
     GameObject _minian;
     LinePaths[] _LinePaths;
+    public void SetClearPath()
+    {
+        _LinePaths = null;
+    }
     public LinePaths[] _GatPahts()
     {
         if (_LinePaths == null)
@@ -38,7 +42,15 @@ public class MinianCon : MonoBehaviour
         mon.init(tempmon);
         _minianList.Add(mon);
     }
-        public class Minian 
+    public Orangefox GetTarget(Vector3 position, float dist)
+    {
+        Orangefox ret = (from m in _minianList//가져올 정보
+                         where Vector3.Distance(position, m.transform.position) < dist//조건
+                            orderby Vector3.Distance(position, m.transform.position) ascending
+                            select m).FirstOrDefault();
+        return ret;//가장가까운 몬스터하나
+    }
+    public class Minian 
     {
         public Transform Transform;
         public int LINE;

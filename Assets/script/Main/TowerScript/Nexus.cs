@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Nexus : MonoBehaviour
 {
+    [SerializeField] ETeamColor towerColor;
     [SerializeField] TwinsTower twinsTower1;
     [SerializeField] TwinsTower twinsTower2;
     [SerializeField] GameObject endCanvas;
@@ -15,7 +16,11 @@ public class Nexus : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (twinsTower2.Hp <= 0 && twinsTower1.Hp <= 0) 
+        if (GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor == towerColor)
+        {
+            Debug.Log("같은팀입니다");
+        }
+      else  if (twinsTower2.Hp <= 0 && twinsTower1.Hp <= 0) 
         {
             _towerHp -= _dmg;
             Debug.Log(_towerHp);

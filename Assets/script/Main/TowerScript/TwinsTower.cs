@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TwinsTower : MonoBehaviour
 {
+    [SerializeField] ETeamColor towerColor;
     [SerializeField] TowerHpCon topTower;
     [SerializeField] TowerHpCon midTower;
     [SerializeField] TowerHpCon botTower;
@@ -17,7 +18,11 @@ public class TwinsTower : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (topTower.Hp <=0 || midTower.Hp <= 0|| botTower.Hp <= 0)
+        if (GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor == towerColor)
+        {
+            Debug.Log("같은팀입니다");
+        }
+        else if (topTower.Hp <=0 || midTower.Hp <= 0|| botTower.Hp <= 0)
         {
             _Hp -= _dmg;
             Debug.Log(_Hp);

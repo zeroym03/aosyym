@@ -22,7 +22,7 @@ public class MinianRunning : GameState
     int _redbotline = 5;
     public override void OnEnter()
     {
-        MinianSummon();
+       MinianSummon();
     }
     public override void MainLoop()
     {
