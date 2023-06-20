@@ -33,7 +33,7 @@ public class MinianRunning : GameState
         _montime += Time.deltaTime;
         if (_montime >= _mondelay && _nowmonsterCount < _moncount)
         {
-            MinianSummon();
+        //    MinianSummon();
             _montime = 0f;
             _nowmonsterCount++;
         }

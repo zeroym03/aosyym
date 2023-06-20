@@ -14,8 +14,6 @@ public class Orangefox : MonoBehaviour
     NavMeshAgent _agent;
     LinePaths[] _midLine;
     int _pathindex = 0;
-    int _nowhp;
-    float _speed;
     float dis1;
     float dis2;
     bool monAttack = true;
@@ -25,12 +23,6 @@ public class Orangefox : MonoBehaviour
     [SerializeField] int _attack;
     [SerializeField] Animator _ani;
     GameObject _herotransform;
-    private void Start()
-    {
- gameObject. transform.position=_mondata.Transform.position;
-        Debug.Log(transform.position);
-
-    }
     private void OnTriggerEnter(Collider other)//현재 플레이어에 무기콜리더 트리거로 피해를 입히도록 되어있어 트리거로 피해를 입도록함
     {
         if (GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor != _mondata._eTeamColor)
@@ -105,9 +97,11 @@ public class Orangefox : MonoBehaviour
             if (monAttack == true)
             {
                 monAttack = false;
-                yield return new WaitForSecondsRealtime(0.7f);
+                GenericSinglngton<MainSoundCon>.Instance.MinianEffectSound(_mondata.minianAudioSource);
+                yield return new WaitForSecondsRealtime(0.35f);
                 GenericSinglngton<HeroUnitData>.Instance.hp -= 3;
                 Debug.Log(GenericSinglngton<HeroUnitData>.Instance.hp);
+                yield return new WaitForSecondsRealtime(0.4f);
                 monAttack = true;
             }
         }
@@ -125,7 +119,7 @@ public class Orangefox : MonoBehaviour
         _midLine = GenericSinglngton<MinianCon>.Instance._GatPahts();
         _mondata = monData;
         _agent = GetComponent<NavMeshAgent>();
-        _nowhp = _mondata.HP;
-        _speed = _mondata.SPEED;
+        _mondata.minianAudioSource = GetComponent<AudioSource>();
+        gameObject.transform.position = _mondata.Transform.position;
     }
 }

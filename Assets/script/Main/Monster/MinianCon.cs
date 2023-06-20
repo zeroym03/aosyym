@@ -59,15 +59,8 @@ public class MinianCon : MonoBehaviour
         public string NAME;
         public ETeamColor _eTeamColor;
         public EDefType EDefType;
+        public AudioSource minianAudioSource;
     }
-    //public Minian GetTarget(Vector3 position, float dist)
-    //{
-    //    Minian ret = (from m in _minianList//가져올 정보
-    //                  where Vector3.Distance(position, m.transform.position) < dist//조건
-    //                  orderby Vector3.Distance(position, m.transform.position) ascending
-    //                  select m).FirstOrDefault();
-    //    return ret;//가장가까운 몬스터하나
-    //}
 }
 public enum EDefType
 {

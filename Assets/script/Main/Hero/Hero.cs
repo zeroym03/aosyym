@@ -71,11 +71,12 @@ public class Hero : MonoBehaviour
     }
     public void Attack()//attack
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && heroUnitData.attack == false)
         {
             heroUnitData.attack = true;
             heroUnitData._HeroAni.SetTrigger("Attack");
             heroUnitData._HeroSword.enabled = true;
+            GenericSinglngton<MainSoundCon>.Instance.HeroEffectSound();
             DonMove();
         }
     }

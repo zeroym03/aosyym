@@ -6,9 +6,6 @@ public class GameCon : MonoBehaviour
     {
         ChangeGameState(new MinianRunning());
     }
-    private void Start()
-    {
-    }
     void Update()
     {
         if (_state != null) _state.MainLoop();

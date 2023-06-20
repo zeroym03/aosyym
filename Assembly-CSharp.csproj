@@ -81,6 +81,7 @@
     <Compile Include="Assets\script\Main\Hero\Hero.cs" />
     <Compile Include="Assets\script\Main\Monster\MinianCon.cs" />
     <Compile Include="Assets\script\SceneChange\EndGameLoadScene.cs" />
+    <Compile Include="Assets\script\MainSoundCon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Water_Shader_WebGl.shader" />

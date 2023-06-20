@@ -13,7 +13,7 @@ public class HeroUnitData : MonoBehaviour
     float _speed = 20;//xo
     public float speed { get { return _speed; } set { _speed = value; } }
 
-    int _hp = 20;//o
+    int _hp = 500;//o
     public int hp { get { return _hp; } set { _hp = value; } }
 
     float _cortimer = 0f;//x
