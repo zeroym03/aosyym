@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraCon : MonoBehaviour
 {
-    [SerializeField] Transform _transhero;
+    Transform _transhero;
 
     void Update()
     {
@@ -10,6 +10,7 @@ public class CameraCon : MonoBehaviour
     }
     void cameraCon()
     {
+        _transhero = GameObject.FindWithTag("Player").transform;
         transform.position = _transhero.position + new Vector3(0,30,-5);
     }
 }

@@ -93,7 +93,8 @@ public class Hero : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M) /*_hp >= _hehp1*/)
         {
-            heroUnitData.hp -= _hpdown;
+
+            heroUnitData.hp -= 300;
             heroUnitData.hit = true;
             _hpimage.Hpdown((float)heroUnitData.hp / _maxHP);
             Debug.Log("받은피해" + _hpdown + "현재체력" + heroUnitData.hp);

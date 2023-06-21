@@ -38,19 +38,25 @@ public class MinianCon : MonoBehaviour
         tempmon.SPEED = 3f;
         tempmon.NAME = "근접여우";
         tempmon._eTeamColor = eTeamColor;
-        tempmon.EDefType = EDefType.None; 
+        tempmon.EDefType = EDefType.None;
         mon.init(tempmon);
         _minianList.Add(mon);
+    }
+    GameObject hero;
+    public void HeroLoad()
+    {
+        hero = Resources.Load("Prefab/CharacterParent") as GameObject;
+        Instantiate(hero).GetComponent<Hero>();
     }
     public Orangefox GetTarget(Vector3 position, float dist)
     {
         Orangefox ret = (from m in _minianList//가져올 정보
                          where Vector3.Distance(position, m.transform.position) < dist//조건
-                            orderby Vector3.Distance(position, m.transform.position) ascending
-                            select m).FirstOrDefault();
+                         orderby Vector3.Distance(position, m.transform.position) ascending
+                         select m).FirstOrDefault();
         return ret;//가장가까운 몬스터하나
     }
-    public class Minian 
+    public class Minian
     {
         public Transform Transform;
         public int LINE;

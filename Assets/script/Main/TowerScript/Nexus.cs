@@ -40,4 +40,11 @@ public class Nexus : MonoBehaviour
         Time.timeScale = 1f;
         endCanvas.SetActive(true);
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            removal();
+        }
+    }
 }

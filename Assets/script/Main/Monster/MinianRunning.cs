@@ -1,4 +1,6 @@
 using UnityEngine;
+using static MinianCon;
+
 enum ELine
 {
     _midline,
@@ -23,6 +25,7 @@ public class MinianRunning : GameState
     public override void OnEnter()
     {
        MinianSummon();
+        GenericSinglngton<MinianCon>.Instance.HeroLoad();
     }
     public override void MainLoop()
     {
