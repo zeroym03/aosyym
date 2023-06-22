@@ -15,7 +15,7 @@ public class MinianCon : MonoBehaviour
     {
         if (_LinePaths == null)
         {
-            GameObject temp = Resources.Load("Prefab/TowerFile") as GameObject;// Resources.Load("Prefab/TowerFile")에있는  스크립트
+            GameObject temp = Resources.Load("Prefab/Object/TowerFile") as GameObject;// Resources.Load("Prefab/TowerFile")에있는  스크립트
             _LinePaths = Instantiate(temp).GetComponentsInChildren<LinePaths>();
             DontDestroyOnLoad(temp);
         }
@@ -25,7 +25,7 @@ public class MinianCon : MonoBehaviour
     {
         if (_minian == null)
         {
-            _minian = Resources.Load("Prefab/OrangeFox") as GameObject;
+            _minian = Resources.Load("Prefab/Object/OrangeFox") as GameObject;
         }
         _GatPahts();
         Orangefox mon = Instantiate(_minian).GetComponent<Orangefox>();
@@ -45,16 +45,18 @@ public class MinianCon : MonoBehaviour
     GameObject hero;
     public void HeroLoad()
     {
-        hero = Resources.Load("Prefab/CharacterParent") as GameObject;
+        hero = Resources.Load("Prefab/Object/CharacterParent") as GameObject;
         Instantiate(hero).GetComponent<Hero>();
     }
-    public Orangefox GetTarget(Vector3 position, float dist)
+    public Orangefox GetTarget(Vector3 position, float dist, ETeamColor eTeamColor)
     {
-        Orangefox ret = (from m in _minianList//가져올 정보
-                         where Vector3.Distance(position, m.transform.position) < dist//조건
-                         orderby Vector3.Distance(position, m.transform.position) ascending
-                         select m).FirstOrDefault();
-        return ret;//가장가까운 몬스터하나
+        { Orangefox ret = (from m in _minianList//가져올 정보
+                           where m.GetComponent<Orangefox>().Mondata._eTeamColor != eTeamColor//적체크
+                           where Vector3.Distance(position, m.transform.position) < dist//거리체크조건
+                           orderby Vector3.Distance(position, m.transform.position) ascending
+                           select m).FirstOrDefault();
+                return ret;//가장가까운 몬스터하나
+        }
     }
     public class Minian
     {

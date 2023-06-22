@@ -11,11 +11,12 @@ enum Efox
 public class Orangefox : MonoBehaviour
 {
     Minian _mondata;
+    public Minian Mondata {  get { return _mondata; } }
     NavMeshAgent _agent;
     LinePaths[] _midLine;
     int _pathindex = 0;
     float dis1;
-    float dis2;
+    float dis2 = 20;
     bool monAttack = true;
     Efox _efox;
     [SerializeField] GameObject _rotate;
@@ -45,8 +46,18 @@ public class Orangefox : MonoBehaviour
             if (GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor == _mondata._eTeamColor) { _efox = Efox.move; } //_eHeroTeamColor를 매개변수로 받아서
 
             else MinianSearch(_herotransform.transform);//_efox = Efox
-            if (_efox == Efox.move) MinianTowerMove();
+            if (_efox == Efox.move) MinianTowerMove();//GetTarget이 널이면
             if (_efox == Efox.attack) MinianAttack(_herotransform.transform);
+            if(GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor) == null)
+            {
+                Debug.Log("< MinianCon >.Instance.GetTarget == null");
+
+            }
+            if (GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor) != null)
+            {
+                MinianAttack(GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor).transform);
+                Debug.Log("< MinianCon >.Instance.GetTarget");
+            }
         }
         if (_efox == Efox.die) StartCoroutine(MinianDie());
     }
@@ -67,14 +78,14 @@ public class Orangefox : MonoBehaviour
     void MinianSearch(Transform herotrans)
     {
         dis1 = Vector3.Distance(herotrans.position, transform.position); //거리체크//_hero 왜에도 적 미니언도 잡아야됨
-        if (dis1 < 20)//적 찾아서 이동시작거리
+        if (dis1 < dis2)//적 찾아서 이동시작거리
         { _efox = Efox.attack; }
         else
         {
             _efox = Efox.move;// _efox 에따라 상태변화로
         }
     }
-    void MinianAttack(Transform herotrans)
+    void MinianAttack(Transform herotrans)//영웅도 미니언컨에서 서치로?
     {
         if (dis1 < 3)//공격 시작거리
         {
@@ -121,5 +132,9 @@ public class Orangefox : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _mondata.minianAudioSource = GetComponent<AudioSource>();
         gameObject.transform.position = _mondata.Transform.position;
+        if (_mondata._eTeamColor == ETeamColor.Red) GetComponentInChildren<SkinnedMeshRenderer>().material.color = new Color(1,0.1f,0.1f);
+
+        else GetComponentInChildren<SkinnedMeshRenderer>().material.color =  new Color(1, 200 / 255f, 3 / 255f);
+        Debug.Log(GetComponentInChildren<SkinnedMeshRenderer>().material.color);
     }
 }

@@ -69,7 +69,7 @@
     <Compile Include="Assets\script\Loby\ResultText.cs" />
     <Compile Include="Assets\script\Csv Folder\HeroDataRead.cs" />
     <Compile Include="Assets\script\Main\Monster\MinianRunning.cs" />
-    <Compile Include="Assets\script\MainSoundCon.cs" />
+    <Compile Include="Assets\script\Singlngton\MainSoundCon.cs" />
     <Compile Include="Assets\script\Csv Folder\AllDataSingletun.cs" />
     <Compile Include="Assets\script\Main\TowerScript\TowerHpCon.cs" />
     <Compile Include="Assets\script\Main\Hero\HeroUnitData.cs" />
