@@ -58,6 +58,11 @@ public class MinianCon : MonoBehaviour
                 return ret;//가장가까운 몬스터하나
         }
     }
+    public void MinianDestloy(Orangefox destOrangefox)
+    {
+        Destroy(destOrangefox.gameObject);
+        _minianList.Remove(destOrangefox);
+    }
     public class Minian
     {
         public Transform Transform;

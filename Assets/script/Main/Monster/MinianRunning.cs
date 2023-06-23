@@ -1,5 +1,4 @@
 using UnityEngine;
-using static MinianCon;
 
 enum ELine
 {
@@ -24,7 +23,7 @@ public class MinianRunning : GameState
     int _redbotline = 5;
     public override void OnEnter()
     {
-       MinianSummon();
+        MinianSummon();
         GenericSinglngton<MinianCon>.Instance.HeroLoad();
     }
     public override void MainLoop()
@@ -36,7 +35,7 @@ public class MinianRunning : GameState
         _montime += Time.deltaTime;
         if (_montime >= _mondelay && _nowmonsterCount < _moncount)
         {
-        //    MinianSummon();
+            MinianSummon();
             _montime = 0f;
             _nowmonsterCount++;
         }

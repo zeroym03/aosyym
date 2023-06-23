@@ -11,19 +11,18 @@ enum Efox
 public class Orangefox : MonoBehaviour
 {
     Minian _mondata;
-    public Minian Mondata {  get { return _mondata; } }
+    public Minian Mondata { get { return _mondata; } }
     NavMeshAgent _agent;
     LinePaths[] _midLine;
     int _pathindex = 0;
-    float dis1;
     float dis2 = 20;
     bool monAttack = true;
     Efox _efox;
     [SerializeField] GameObject _rotate;
     [SerializeField] float _hp;
-    [SerializeField] int _attack;
+    [SerializeField] int _attackPower;
     [SerializeField] Animator _ani;
-    GameObject _herotransform;
+    GameObject _hero;
     private void OnTriggerEnter(Collider other)//현재 플레이어에 무기콜리더 트리거로 피해를 입히도록 되어있어 트리거로 피해를 입도록함
     {
         if (GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor != _mondata._eTeamColor)
@@ -36,85 +35,62 @@ public class Orangefox : MonoBehaviour
                 Debug.Log(_hp);
             }
         }
-        if (_hp <= 0) { _efox = Efox.die; }
     }
     private void Update()
     {
-        if (_efox != Efox.die)
-        {
-            _herotransform = GameObject.FindWithTag("Player");
-            if (GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor == _mondata._eTeamColor) { _efox = Efox.move; } //_eHeroTeamColor를 매개변수로 받아서
-
-            else MinianSearch(_herotransform.transform);//_efox = Efox
-            if (_efox == Efox.move) MinianTowerMove();//GetTarget이 널이면
-            if (_efox == Efox.attack) MinianAttack(_herotransform.transform);
-            if(GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor) == null)
-            {
-                Debug.Log("< MinianCon >.Instance.GetTarget == null");
-
-            }
-            if (GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor) != null)
-            {
-                MinianAttack(GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor).transform);
-                Debug.Log("< MinianCon >.Instance.GetTarget");
-            }
-        }
         if (_efox == Efox.die) StartCoroutine(MinianDie());
+        else if (_efox != Efox.die)
+        {
+            _hero = GameObject.FindWithTag("Player");
+            if (_efox == Efox.move) MinianTowerMove();//
+            if (GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor) != null)
+                TargetTransCheck(GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor).gameObject);
+            if (Vector3.Distance(_hero.transform.position, gameObject.transform.position) < dis2 && GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor != Mondata._eTeamColor)
+                TargetTransCheck(_hero);
+            else if (GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor) == null) _efox = Efox.move;// _efox 에따라 상태변화로
+            if (_hp <= 0) { _efox = Efox.die; }
+        }
     }
     private void MinianTowerMove()
     {
         if (_midLine == null) return;
-        if (Mathf.Abs(Vector3.Distance(transform.position, _midLine[_mondata.LINE].getPaths()[_pathindex].position)) < 4)// _paths 에 도착하면 실행
-        {
-            Debug.Log("미니언도착");
-            _pathindex++;
-        }
+        if (Mathf.Abs(Vector3.Distance(transform.position, _midLine[_mondata.LINE].getPaths()[_pathindex].position)) < 4) _pathindex++; // _paths 에 도착하면 실행
         else
         {
             _agent.SetDestination(_midLine[_mondata.LINE].getPaths()[_pathindex].position);// 도착위치 저장+이동
             _ani.SetInteger("legfox", (int)Efox.move);
+            _agent.isStopped = false;
         }
     }
-    void MinianSearch(Transform herotrans)
+    void TargetTransCheck(GameObject targetgameObject)//거리3 대상한테공격
     {
-        dis1 = Vector3.Distance(herotrans.position, transform.position); //거리체크//_hero 왜에도 적 미니언도 잡아야됨
-        if (dis1 < dis2)//적 찾아서 이동시작거리
-        { _efox = Efox.attack; }
-        else
-        {
-            _efox = Efox.move;// _efox 에따라 상태변화로
-        }
-    }
-    void MinianAttack(Transform herotrans)//영웅도 미니언컨에서 서치로?
-    {
-        if (dis1 < 3)//공격 시작거리
-        {
+        _agent.SetDestination(targetgameObject.transform.position);
+        if (Vector3.Distance(targetgameObject.transform.position, gameObject.transform.position) < 3)
+        {  
             _agent.isStopped = true;
             _ani.SetInteger("legfox", (int)Efox.attack);
-            StartCoroutine(AttackCool());
-        }
-        else
-        {
-            _agent.isStopped = false;
-            _agent.SetDestination(herotrans.position);// 도착위치 저장
-            _ani.SetInteger("legfox", (int)Efox.move);
-
+            StartCoroutine(AttackCool(targetgameObject));
         }
     }
-    IEnumerator AttackCool()
+    IEnumerator AttackCool(GameObject gameObject)//공격실행
     {
-        if (GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor != _mondata._eTeamColor)
+        if (monAttack == true)
         {
-            if (monAttack == true)
+            monAttack = false;
+            GenericSinglngton<MainSoundCon>.Instance.MinianEffectSound(_mondata.minianAudioSource);
+            yield return new WaitForSecondsRealtime(0.35f);
+            if (gameObject.tag == "Minian")
             {
-                monAttack = false;
-                GenericSinglngton<MainSoundCon>.Instance.MinianEffectSound(_mondata.minianAudioSource);
-                yield return new WaitForSecondsRealtime(0.35f);
-                GenericSinglngton<HeroUnitData>.Instance.hp -= 3;
-                Debug.Log(GenericSinglngton<HeroUnitData>.Instance.hp);
-                yield return new WaitForSecondsRealtime(0.4f);
-                monAttack = true;
+                gameObject.GetComponentInChildren<Orangefox>()._hp -= _attackPower;
+                Debug.Log(gameObject.GetComponentInChildren<Orangefox>()._hp + "" + Mondata._eTeamColor);
             }
+            if (gameObject.tag == "Player")
+            { 
+                GenericSinglngton<HeroUnitData>.Instance.hp -= _attackPower; 
+                Debug.Log(GenericSinglngton<HeroUnitData>.Instance.hp);
+            }
+            yield return new WaitForSecondsRealtime(0.4f);
+            monAttack = true;
         }
     }
     IEnumerator MinianDie()
@@ -122,8 +98,7 @@ public class Orangefox : MonoBehaviour
         _ani.SetTrigger("New Trigger");
         _agent.isStopped = true;
         yield return new WaitForSecondsRealtime(1);
-        Destroy(gameObject);
-        Debug.Log("asd");
+        GenericSinglngton<MinianCon>.Instance.MinianDestloy(gameObject.GetComponent<Orangefox>());
     }
     public void init(Minian monData)
     {
@@ -132,9 +107,8 @@ public class Orangefox : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _mondata.minianAudioSource = GetComponent<AudioSource>();
         gameObject.transform.position = _mondata.Transform.position;
-        if (_mondata._eTeamColor == ETeamColor.Red) GetComponentInChildren<SkinnedMeshRenderer>().material.color = new Color(1,0.1f,0.1f);
 
-        else GetComponentInChildren<SkinnedMeshRenderer>().material.color =  new Color(1, 200 / 255f, 3 / 255f);
-        Debug.Log(GetComponentInChildren<SkinnedMeshRenderer>().material.color);
+        if (_mondata._eTeamColor == ETeamColor.Red) GetComponentInChildren<SkinnedMeshRenderer>().material.color = new Color(1, 0.1f, 0.1f);
+        else GetComponentInChildren<SkinnedMeshRenderer>().material.color = new Color(1, 200 / 255f, 3 / 255f);
     }
 }

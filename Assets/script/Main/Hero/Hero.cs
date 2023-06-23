@@ -57,17 +57,10 @@ public class Hero : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Ground")))
             {
                 heroUnitData._HeroAgent.SetDestination(hit.point);
-                Debug.Log(heroUnitData._HeroAgent.destination);
             }
         }
-        if (Vector3.Distance(gameObject.transform.position, heroUnitData._HeroAgent.destination) >= 0.3f)// 현위치 - 목적이 계산
-        {
-            heroUnitData._HeroAni.SetInteger("hero", (int)heromove.move);
-        }
-        else
-        {
-            heroUnitData._HeroAni.SetInteger("hero", (int)heromove.Idle);
-        }
+        if (Vector3.Distance(gameObject.transform.position, heroUnitData._HeroAgent.destination) >= 0.3f) heroUnitData._HeroAni.SetInteger("hero", (int)heromove.move);// 현위치 - 목적이 계산
+        else heroUnitData._HeroAni.SetInteger("hero", (int)heromove.Idle);
     }
     public void Attack()//attack
     {
