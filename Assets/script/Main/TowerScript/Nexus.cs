@@ -14,20 +14,17 @@ public class Nexus : MonoBehaviour
         gameObject.SetActive(true);
         _dmg = GenericSinglngton<HeroUnitData>.Instance.Damages;
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor == towerColor)
         {
             Debug.Log("같은팀입니다");
         }
-      else  if (twinsTower2.Hp <= 0 && twinsTower1.Hp <= 0) 
+        else if (twinsTower2.Hp <= 0 && twinsTower1.Hp <= 0)
         {
             _towerHp -= _dmg;
             Debug.Log(_towerHp);
-            if (_towerHp <= 0)
-            {
-                removal();
-            }
         }
         else
         {
@@ -43,6 +40,10 @@ public class Nexus : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
+        {
+            removal();
+        }
+        if (_towerHp <= 0)
         {
             removal();
         }

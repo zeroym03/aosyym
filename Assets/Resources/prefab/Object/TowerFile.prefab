@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3071417159775831992}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedBotLinePath1
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,9 +72,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 647180382811548676}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueTopLinePath1
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,9 +104,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7540322934167841952}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedHouseLinePath2
+  m_TagString: TwinTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,9 +136,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8770942641179706434}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedBotLinePath2
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,9 +168,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878323135401556700}
-  m_Layer: 0
-  m_Name: LinePath2
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueMidLinePath2
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,9 +200,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5140921283519312671}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueHouseLinePath2
+  m_TagString: TwinTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,9 +232,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3685934036345366717}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedTopLinePath3
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -317,9 +317,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 783342313195624975}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueBotLinePath1
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,9 +349,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8869548494330211003}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueHouseLinePath1
+  m_TagString: TwinTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,7 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3250950609995400344}
   m_Layer: 0
-  m_Name: bluetop (1)
+  m_Name: 'Bluetop '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -824,9 +824,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7086202259359534378}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedTopLinePath2
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -856,9 +856,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6420633565954802473}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedHouseLinePath3
+  m_TagString: Nexus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -888,9 +888,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5544722298226820203}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueBotLinePath2
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -973,9 +973,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 481018013769396419}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueTopLinePath2
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1005,9 +1005,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1576079431127060693}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueBotLinePath3
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1090,9 +1090,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4702550677125344171}
-  m_Layer: 0
-  m_Name: LinePath2
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedMidLinePath2
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1122,9 +1122,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4368030021167312428}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedTopLinePath1
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1207,9 +1207,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2557298770392394431}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueMidLinePath1
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1292,9 +1292,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7409481085475157344}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedMidLinePath1
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1355,9 +1355,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8545054623224660751}
-  m_Layer: 0
-  m_Name: LinePath3
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedMidLinePath3
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1418,9 +1418,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2057612552698959081}
-  m_Layer: 0
-  m_Name: LinePath3
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueMidLinePath3
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1450,9 +1450,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4343732529720497395}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedHouseLinePath1
+  m_TagString: TwinTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1482,9 +1482,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2343638003607047873}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueHouseLinePath3
+  m_TagString: Nexus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1514,9 +1514,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6004032653100553566}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: BlueTopLinePath3
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1599,9 +1599,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714019465288451136}
-  m_Layer: 0
-  m_Name: LinePath1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: RedBotLinePath3
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1992,7 +1992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerColor: 1
-  beforetower: {fileID: 0}
+  beforetower: {fileID: 3175264520613032492}
 --- !u!4 &2317179009661584089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 951935534923854223, guid: c47516db662d62942b58a78ca6142ae2, type: 3}
@@ -2983,6 +2983,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 187918, guid: 77a599bd67f72e24999e1d5d60f433d0, type: 3}
   m_PrefabInstance: {fileID: 3250950611341467952}
   m_PrefabAsset: {fileID: 0}
+--- !u!208 &4306520876554629913
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3250950611341557566}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.25, y: 0.5, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!114 &4689460067545423501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4586,12 +4602,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 7409481085475157344}
     m_Modifications:
     - target: {fileID: 75853217291290681, guid: b85ed8663e4e80343826cf933b7f4a4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 75853217291290681, guid: b85ed8663e4e80343826cf933b7f4a4c, type: 3}
       propertyPath: towerColor
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 75853217325084983, guid: b85ed8663e4e80343826cf933b7f4a4c, type: 3}
       propertyPath: m_Name
       value: Red mid Tower 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 75853217325084983, guid: b85ed8663e4e80343826cf933b7f4a4c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 75853217325084983, guid: b85ed8663e4e80343826cf933b7f4a4c, type: 3}
       propertyPath: m_TagString
@@ -4648,6 +4672,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 75853217325377725, guid: b85ed8663e4e80343826cf933b7f4a4c, type: 3}
   m_PrefabInstance: {fileID: 3250950612035942933}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3175264520613032492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 75853217291290681, guid: b85ed8663e4e80343826cf933b7f4a4c, type: 3}
+  m_PrefabInstance: {fileID: 3250950612035942933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e109197a394744098b21416430e2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8573597419074110984
 PrefabInstance:
   m_ObjectHideFlags: 0

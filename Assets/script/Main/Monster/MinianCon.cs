@@ -11,6 +11,10 @@ public class MinianCon : MonoBehaviour
     {
         _LinePaths = null;
     }
+    public void ClearMinianList()
+    {
+        _minianList.Clear();
+    }
     public LinePaths[] _GatPahts()
     {
         if (_LinePaths == null)
