@@ -5,9 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Sword
-  - Red
-  - Blue
   - Minian
+  - Tower
+  - TwinTower
+  - Nexus
+  - Blue
+  - Naxus
   layers:
   - Default
   - TransparentFX

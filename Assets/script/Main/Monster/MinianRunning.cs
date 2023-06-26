@@ -35,7 +35,7 @@ public class MinianRunning : GameState
         _montime += Time.deltaTime;
         if (_montime >= _mondelay && _nowmonsterCount < _moncount)
         {
-            MinianSummon();
+          //  MinianSummon();
             _montime = 0f;
             _nowmonsterCount++;
         }
@@ -45,8 +45,8 @@ public class MinianRunning : GameState
         GenericSinglngton<MinianCon>.Instance.Addmonster(_midline, ETeamColor.Red);
         GenericSinglngton<MinianCon>.Instance.Addmonster(_topline, ETeamColor.Red);
         GenericSinglngton<MinianCon>.Instance.Addmonster(_botline, ETeamColor.Red);
-        GenericSinglngton<MinianCon>.Instance.Addmonster(_redmidline, ETeamColor.Blue);
-        GenericSinglngton<MinianCon>.Instance.Addmonster(_redtopline, ETeamColor.Blue);
-        GenericSinglngton<MinianCon>.Instance.Addmonster(_redbotline, ETeamColor.Blue);
+        //GenericSinglngton<MinianCon>.Instance.Addmonster(_redmidline, ETeamColor.Blue);
+        //GenericSinglngton<MinianCon>.Instance.Addmonster(_redtopline, ETeamColor.Blue);
+        //GenericSinglngton<MinianCon>.Instance.Addmonster(_redbotline, ETeamColor.Blue);
     }
 }

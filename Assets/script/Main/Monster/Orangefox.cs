@@ -27,7 +27,7 @@ public class Orangefox : MonoBehaviour
     {
         if (GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor != _mondata._eTeamColor)
         {
-            Debug.Log("OnTriggerEnter");
+         //   Debug.Log("OnTriggerEnter");
 
             if (other.gameObject.layer == 9)//레이어가 9면 아레실행
             {
@@ -38,24 +38,27 @@ public class Orangefox : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(_midLine[_mondata.LINE]);
         if (_efox == Efox.die) StartCoroutine(MinianDie());
         else if (_efox != Efox.die)
         {
             _hero = GameObject.FindWithTag("Player");
             if (_efox == Efox.move) MinianTowerMove();//
-            if (GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor) != null)
-                TargetTransCheck(GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor).gameObject);
+            if (GenericSinglngton<MinianCon>.Instance.GetTargetMinian(gameObject.transform.position, dis2, _mondata._eTeamColor) != null)
+                TargetTransCheck(GenericSinglngton<MinianCon>.Instance.GetTargetMinian(gameObject.transform.position, dis2, _mondata._eTeamColor).gameObject);
+
             if (Vector3.Distance(_hero.transform.position, gameObject.transform.position) < dis2 && GenericSinglngton<AllDataSingletun>.Instance._eHeroTeamColor != Mondata._eTeamColor)
                 TargetTransCheck(_hero);
-            else if (GenericSinglngton<MinianCon>.Instance.GetTarget(gameObject.transform.position, dis2, _mondata._eTeamColor) == null) _efox = Efox.move;// _efox 에따라 상태변화로
+
+            else if (GenericSinglngton<MinianCon>.Instance.GetTargetMinian(gameObject.transform.position, dis2, _mondata._eTeamColor) == null) _efox = Efox.move;// _efox 에따라 상태변화로
             if (_hp <= 0) { _efox = Efox.die; }
         }
     }
     private void MinianTowerMove()
     {
         if (_midLine == null) return;
-        if (Mathf.Abs(Vector3.Distance(transform.position, _midLine[_mondata.LINE].getPaths()[_pathindex].position)) < 4) _pathindex++; // _paths 에 도착하면 실행
-        else
+        if (Mathf.Abs(Vector3.Distance(transform.position, _midLine[_mondata.LINE].getPaths()[_pathindex].position)) < 4 && _pathindex < 7) { _pathindex++;Debug.Log(_pathindex); }  // _paths 에 도착하면 실행
+        else 
         {
             _agent.SetDestination(_midLine[_mondata.LINE].getPaths()[_pathindex].position);// 도착위치 저장+이동
             _ani.SetInteger("legfox", (int)Efox.move);
@@ -88,6 +91,21 @@ public class Orangefox : MonoBehaviour
             { 
                 GenericSinglngton<HeroUnitData>.Instance.hp -= _attackPower; 
                 Debug.Log(GenericSinglngton<HeroUnitData>.Instance.hp);
+            }
+            if (gameObject.tag == "Tower")
+            {
+                gameObject.GetComponentInChildren<TowerHpCon>().Hp -= _attackPower;
+                Debug.Log(gameObject.GetComponentInChildren<TowerHpCon>().Hp  + "" + Mondata._eTeamColor);
+            }
+            if (gameObject.tag == "TwinTower")
+            {
+                gameObject.GetComponentInChildren<TwinsTower>().Hp -= _attackPower;
+                Debug.Log(gameObject.GetComponentInChildren<TwinsTower>().Hp + "" + Mondata._eTeamColor);
+            }
+            if (gameObject.tag == "Nenus")
+            {
+                gameObject.GetComponentInChildren<Nexus>().Hp -= _attackPower;
+                Debug.Log(gameObject.GetComponentInChildren<Nexus>().Hp + "" + Mondata._eTeamColor);
             }
             yield return new WaitForSecondsRealtime(0.4f);
             monAttack = true;

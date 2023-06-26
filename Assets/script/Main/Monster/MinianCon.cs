@@ -48,7 +48,7 @@ public class MinianCon : MonoBehaviour
         hero = Resources.Load("Prefab/Object/CharacterParent") as GameObject;
         Instantiate(hero).GetComponent<Hero>();
     }
-    public Orangefox GetTarget(Vector3 position, float dist, ETeamColor eTeamColor)
+    public Orangefox GetTargetMinian(Vector3 position, float dist, ETeamColor eTeamColor)
     {
         { Orangefox ret = (from m in _minianList//가져올 정보
                            where m.GetComponent<Orangefox>().Mondata._eTeamColor != eTeamColor//적체크
@@ -58,6 +58,18 @@ public class MinianCon : MonoBehaviour
                 return ret;//가장가까운 몬스터하나
         }
     }
+    public LinePaths GetTargetTower(Vector3 position, float dist, ETeamColor eTeamColor)
+    {
+        {
+            LinePaths ret = (from Tower in _LinePaths//가져올 정보
+                             where Tower.GetComponentInChildren<TowerHpCon>().TowerColor != eTeamColor//적체크
+                             where Vector3.Distance(position, Tower.transform.position) < dist//거리체크조건
+                             orderby Vector3.Distance(position, Tower.transform.position) ascending
+                             select Tower).FirstOrDefault();
+            return ret;//가장가까운 몬스터하나
+        }
+    }
+
     public void MinianDestloy(Orangefox destOrangefox)
     {
         Destroy(destOrangefox.gameObject);

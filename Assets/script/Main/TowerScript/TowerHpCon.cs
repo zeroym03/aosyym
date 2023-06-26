@@ -1,7 +1,10 @@
 using UnityEngine;
+using static MinianCon;
+
 public class TowerHpCon : MonoBehaviour//이름 제데로 바꾸기
 {
     [SerializeField] ETeamColor towerColor;
+    public ETeamColor TowerColor { get { return towerColor; } }
     [SerializeField] TowerHpCon beforetower;
     int _Hp =200;
     public int Hp { get { return _Hp; } set { _Hp = value; } }
